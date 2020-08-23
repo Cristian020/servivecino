@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "523022590043",
+    "firebase_url": "https://mrfoodflutter-6c931.firebaseio.com",
+    "project_id": "mrfoodflutter-6c931",
+    "storage_bucket": "mrfoodflutter-6c931.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523022590043:android:a0d61195795178433ddf7e",
+        "android_client_info": {
+          "package_name": "com.express.mr_food_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523022590043-qg12ukbaqmqis5b2aipis1rv2l5vb04n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW8ryC90r-YV9sTvliVkU2d2QVCS5K3us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523022590043-qg12ukbaqmqis5b2aipis1rv2l5vb04n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
