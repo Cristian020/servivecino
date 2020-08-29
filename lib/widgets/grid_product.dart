@@ -4,22 +4,20 @@ import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
 class GridProduct extends StatelessWidget {
-
   final String name;
   final String img;
   final bool isFav;
   final double rating;
   final int raters;
 
-
-  GridProduct({
-    Key key,
-    @required this.name,
-    @required this.img,
-    @required this.isFav,
-    @required this.rating,
-    @required this.raters})
-      :super(key: key);
+  GridProduct(
+      {Key key,
+      @required this.name,
+      @required this.img,
+      @required this.isFav,
+      @required this.rating,
+      @required this.raters})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +39,7 @@ class GridProduct extends StatelessWidget {
                   ),
                 ),
               ),
-
+/*
               Positioned(
                 right: -10.0,
                 bottom: 3.0,
@@ -61,12 +59,9 @@ class GridProduct extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
+              ),*/
             ],
-
-
           ),
-
           Padding(
             padding: EdgeInsets.only(bottom: 2.0, top: 8.0),
             child: Text(
@@ -78,7 +73,6 @@ class GridProduct extends StatelessWidget {
               maxLines: 2,
             ),
           ),
-
           Padding(
             padding: EdgeInsets.only(bottom: 5.0, top: 2.0),
             child: Row(
@@ -90,25 +84,21 @@ class GridProduct extends StatelessWidget {
                   rating: rating,
                   size: 10.0,
                 ),
-
                 Text(
                   " $rating ($raters Comentarios)",
                   style: TextStyle(
                     fontSize: 11.0,
                   ),
                 ),
-
               ],
             ),
           ),
-
-
         ],
       ),
-      onTap: (){
+      onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (BuildContext context){
+            builder: (BuildContext context) {
               return ProductDetails();
             },
           ),
