@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
+            "outputFile": "/home/luis/AndroidStudioProjects/software-engineering-ii-group-51-team-2/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
             "map": [
                 {
                     "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/32995bb3935206fd206cea8c6a640845/core-1.1.0/res/values-ms/values-ms.xml",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/f8657446d8ed44dfa62e17e39f24b407/jetified-play-services-basement-17.0.0/res/values-ms/values.xml",
+                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/f8eb0301a4c1d99938eeee38eacac774/jetified-play-services-basement-17.0.0/res/values-ms/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

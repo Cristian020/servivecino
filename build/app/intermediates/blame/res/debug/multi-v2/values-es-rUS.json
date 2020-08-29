@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "/home/luis/AndroidStudioProjects/software-engineering-ii-group-51-team-2/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml",
             "map": [
-                {
-                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/f8657446d8ed44dfa62e17e39f24b407/jetified-play-services-basement-17.0.0/res/values-es-rUS/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "204",
-                        "endOffsets": "455"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1298",
-                        "endColumns": "204",
-                        "endOffsets": "1498"
-                    }
-                },
                 {
                     "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/b299e3677451439e7378764b9181568d/play-services-base-17.1.0/res/values-es-rUS/values.xml",
                     "from": {
@@ -35,6 +18,23 @@
                         "startOffsets": "105,215,413,547,657,877,1010,1163,1503,1733,1844,2045,2180,2416,2624,2724,2816",
                         "endColumns": "109,197,133,109,219,132,152,134,229,110,200,134,235,207,99,91,106",
                         "endOffsets": "210,408,542,652,872,1005,1158,1293,1728,1839,2040,2175,2411,2619,2719,2811,2918"
+                    }
+                },
+                {
+                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/f8eb0301a4c1d99938eeee38eacac774/jetified-play-services-basement-17.0.0/res/values-es-rUS/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "204",
+                        "endOffsets": "455"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1298",
+                        "endColumns": "204",
+                        "endOffsets": "1498"
                     }
                 },
                 {

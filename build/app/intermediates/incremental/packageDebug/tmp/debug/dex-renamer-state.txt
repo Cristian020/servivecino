@@ -1,10 +1,10 @@
-#Sat Aug 22 21:12:16 COT 2020
+#Sat Aug 29 09:13:50 COT 2020
 path.2=classes3.dex
 path.1=classes2.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/dex/debug/mergeDexDebug/out/classes3.dex
-base.1=/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/dex/debug/mergeDexDebug/out/classes2.dex
-base.0=/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+base.2=/home/luis/AndroidStudioProjects/software-engineering-ii-group-51-team-2/build/app/intermediates/dex/debug/mergeDexDebug/out/classes3.dex
+base.1=/home/luis/AndroidStudioProjects/software-engineering-ii-group-51-team-2/build/app/intermediates/dex/debug/mergeDexDebug/out/classes2.dex
+base.0=/home/luis/AndroidStudioProjects/software-engineering-ii-group-51-team-2/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
