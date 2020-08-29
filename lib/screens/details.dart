@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/notifications.dart';
+import 'package:restaurant_ui_kit/screens/chat.dart';
 import 'package:restaurant_ui_kit/util/comments.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/foods.dart';
