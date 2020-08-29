@@ -8,15 +8,16 @@ class CartScreen extends StatefulWidget {
   _CartScreenState createState() => _CartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> with AutomaticKeepAliveClientMixin<CartScreen >{
+class _CartScreenState extends State<CartScreen>
+    with AutomaticKeepAliveClientMixin<CartScreen> {
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10.0,0,10.0,0),
+        padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView.builder(
-          itemCount: foods == null ? 0 :foods.length,
+          itemCount: foods == null ? 0 : foods.length,
           itemBuilder: (BuildContext context, int index) {
 //                Food food = Food.fromJson(foods[index]);
             Map food = foods[index];
@@ -32,20 +33,19 @@ class _CartScreenState extends State<CartScreen> with AutomaticKeepAliveClientMi
           },
         ),
       ),
-
       floatingActionButton: FloatingActionButton(
         tooltip: "Pagar",
-        onPressed: (){
+        onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (BuildContext context){
+              builder: (BuildContext context) {
                 return Checkout();
               },
             ),
           );
         },
         child: Icon(
-          Icons.alarm,
+          Icons.credit_card,
         ),
         heroTag: Object(),
       ),

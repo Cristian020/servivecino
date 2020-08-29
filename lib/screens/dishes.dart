@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/notifications.dart';
+import 'package:restaurant_ui_kit/screens/chat.dart';
 import 'package:restaurant_ui_kit/util/foods.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/grid_product.dart';
-
 
 class DishesScreen extends StatefulWidget {
   @override
@@ -20,7 +19,7 @@ class _DishesScreenState extends State<DishesScreen> {
           icon: Icon(
             Icons.keyboard_backspace,
           ),
-          onPressed: ()=>Navigator.pop(context),
+          onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
         title: Text(
@@ -33,10 +32,10 @@ class _DishesScreenState extends State<DishesScreen> {
               icon: Icons.notifications,
               size: 22.0,
             ),
-            onPressed: (){
+            onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context){
+                  builder: (BuildContext context) {
                     return Notifications();
                   },
                 ),
@@ -45,11 +44,9 @@ class _DishesScreenState extends State<DishesScreen> {
           ),
         ],
       ),
-
       body: Padding(
-          padding: EdgeInsets.fromLTRB(10.0,0,10.0,0),
+        padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
-
           children: <Widget>[
             Text(
               "Chino",
@@ -60,7 +57,6 @@ class _DishesScreenState extends State<DishesScreen> {
               maxLines: 2,
             ),
             Divider(),
-
             GridView.builder(
               shrinkWrap: true,
               primary: false,
@@ -82,7 +78,6 @@ class _DishesScreenState extends State<DishesScreen> {
                 );
               },
             ),
-
             SizedBox(height: 20.0),
             Text(
               "Italiana",
@@ -93,7 +88,6 @@ class _DishesScreenState extends State<DishesScreen> {
               maxLines: 2,
             ),
             Divider(),
-
             GridView.builder(
               shrinkWrap: true,
               primary: false,
@@ -115,7 +109,6 @@ class _DishesScreenState extends State<DishesScreen> {
                 );
               },
             ),
-
             SizedBox(height: 20.0),
             Text(
               "Africana",
@@ -126,7 +119,6 @@ class _DishesScreenState extends State<DishesScreen> {
               maxLines: 2,
             ),
             Divider(),
-
             GridView.builder(
               shrinkWrap: true,
               primary: false,
