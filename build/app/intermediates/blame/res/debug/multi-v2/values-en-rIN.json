@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "/home/luis/AndroidStudioProjects/ingenieria-ii/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
                     "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/32995bb3935206fd206cea8c6a640845/core-1.1.0/res/values-en-rIN/values-en-rIN.xml",
