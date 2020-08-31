@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Icon(
-                Icons.directions_run,
+                Icons.add_shopping_cart,
                 size: 150.0,
                 color: Theme.of(context).accentColor,
               ),
