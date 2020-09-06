@@ -68,6 +68,12 @@
       "languageVersion": "1.17"
     },
     {
+      "name": "credit_card",
+      "rootUri": "file:///home/luis/.pub-cache/hosted/pub.dartlang.org/credit_card-0.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "crypto",
       "rootUri": "file:///home/luis/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.4",
       "packageUri": "lib/",
@@ -308,7 +314,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-08-23T23:18:48.099712Z",
+  "generated": "2020-09-06T22:28:34.838989Z",
   "generator": "pub",
   "generatorVersion": "2.10.0-7.2.beta"
 }
