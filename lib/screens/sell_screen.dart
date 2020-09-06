@@ -17,6 +17,10 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           children: <Widget>[
             SizedBox(height: 10.0),
             Text(
+
+
+
+              
               "Vende lo que quieras",
               style: TextStyle(
                 fontSize: 23,
