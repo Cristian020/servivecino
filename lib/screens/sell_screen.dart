@@ -7,6 +7,12 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin<FavoriteScreen> {
+
+      final TextEditingController _nombreServicio = new TextEditingController();
+      final TextEditingController _direccion = new TextEditingController();
+      final TextEditingController _precio = new TextEditingController();
+      final TextEditingController _numeroCelular = new TextEditingController();
+      final TextEditingController _descripcion = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -17,10 +23,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           children: <Widget>[
             SizedBox(height: 10.0),
             Text(
-
-
-
-              
               "Vende lo que quieras",
               style: TextStyle(
                 fontSize: 23,
@@ -29,12 +31,159 @@ class _FavoriteScreenState extends State<FavoriteScreen>
             ),
             SizedBox(height: 10.0),
             SizedBox(height: 30),
+
+            //Nombre del Servicio
+           Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(color: Colors.white,),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white,),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Titulo del Servicio",
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _nombreServicio,
+              ),
+            ),
+          ),
+
+          //Direccion
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(color: Colors.white,),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white,),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Dirección",
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _direccion,
+              ),
+            ),
+          ),
+
+          //Precio
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(color: Colors.white,),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white,),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Precio",
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _precio,
+              ),
+            ),
+          ),
+
+          //Numero de celular
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(color: Colors.white,),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white,),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Celular",
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _numeroCelular,
+              ),
+            ),
+          ),  
           ],
         ),
       ),
     );
   }
-
   @override
   bool get wantKeepAlive => true;
 }
