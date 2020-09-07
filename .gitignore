@@ -1,16 +1,10 @@
 
 .flutter-plugins
 
-<<<<<<< HEAD
 .flutter-plugins-dependencies
 
 .packages
 
 pubspec.lock
-=======
-.packages
-
-.flutter-plugins-dependencies
->>>>>>> Laura
 
 .dart_tool/package_config.json
