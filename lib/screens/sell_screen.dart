@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
@@ -8,12 +9,7 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin<FavoriteScreen> {
-      
-      final TextEditingController _nombreServicio = new TextEditingController();
-      final TextEditingController _direccion = new TextEditingController();
-      final TextEditingController _precio = new TextEditingController();
-      final TextEditingController _numeroCelular = new TextEditingController();
-      final TextEditingController _descripcion = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -24,7 +20,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           children: <Widget>[
             SizedBox(height: 10.0),
             Text(
-              "Vende lo que quieras",
+              "Venta",
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.w800,
@@ -153,6 +149,38 @@ class _FavoriteScreenState extends State<FavoriteScreen>
               ) ,
             ), 
           ), 
+
+          //Boton Guardar
+          ButtonBar(
+            children: <Widget>[
+
+              FlatButton(
+                child: Text('Guardar'),
+                color: Colors.orange[900],
+                onPressed: () {},
+              ),
+            ],
+          ),
+
+          /*CupertinoButton(
+            color: Colors.orange[900],
+            child: Text('Vender'),
+            onPressed: (){
+              showCupertinoDialog(
+                context: context, 
+                builder: (BuildContext context){
+                  return CupertinoAlertDialog(
+                    title: Text('Venta'),
+                    content: Text('Seguro que desea hacer la venta?'),
+                    actions: <Widget>[
+                      CupertinoDialogAction(
+                        child: Text('Cancelar'),
+                      )
+                    ],
+                  )
+                }
+            },
+          ),*/
           ],
         ),
       ),
