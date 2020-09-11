@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:pattern_formatter/pattern_formatter.dart';
 
 class FavoriteScreen extends StatefulWidget {
   @override
@@ -7,7 +8,7 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin<FavoriteScreen> {
-
+      
       final TextEditingController _nombreServicio = new TextEditingController();
       final TextEditingController _direccion = new TextEditingController();
       final TextEditingController _precio = new TextEditingController();
@@ -68,6 +69,12 @@ class _FavoriteScreenState extends State<FavoriteScreen>
               ),
             ),
           ),
+      /*    TextField(
+  keyboardType: TextInputType.number,
+  inputFormatters: [
+    ThousandsFormatter(allowFraction: true)
+  ],
+),*/
 
           //Direccion
           Card(
@@ -117,6 +124,10 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                 ),
               ),
               child: TextField(
+                /*keyboardType: TextInputType.number,
+                inputFormatters:[
+                  ThousandsFormatter()
+                ],*/
                 style: TextStyle(
                   fontSize: 15.0,
                   color: Colors.black,
@@ -178,7 +189,31 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                 controller: _numeroCelular,
               ),
             ),
-          ),  
+          ), 
+
+          //Descripcion
+           Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child:TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Descripción",
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 7,
+              ) ,
+            ), 
+          ), 
           ],
         ),
       ),
