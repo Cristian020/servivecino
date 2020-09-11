@@ -33,7 +33,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
             SizedBox(height: 10.0),
             SizedBox(height: 30),
 
-            //Nombre del Servicio
+           //Nombre del Servicio
            Card(
             elevation: 3.0,
             child: Container(
@@ -43,41 +43,21 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   Radius.circular(5.0),
                 ),
               ),
-              child: TextField(
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  hintText: "Titulo del Servicio",
+              child:TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Titulo para el servicio",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
                     color: Colors.black,
                   ),
                 ),
-                maxLines: 1,
-                controller: _nombreServicio,
-              ),
-            ),
+              ) ,
+            ), 
           ),
-      /*    TextField(
-  keyboardType: TextInputType.number,
-  inputFormatters: [
-    ThousandsFormatter(allowFraction: true)
-  ],
-),*/
 
-          //Direccion
-          Card(
+          //Descripcion
+           Card(
             elevation: 3.0,
             child: Container(
               decoration: BoxDecoration(
@@ -86,21 +66,9 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   Radius.circular(5.0),
                 ),
               ),
-              child: TextField(
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
+              child:TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                   hintText: "Dirección",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
@@ -108,12 +76,11 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   ),
                 ),
                 maxLines: 1,
-                controller: _direccion,
-              ),
-            ),
+              ) ,
+            ), 
           ),
 
-          //Numero de celular
+          //Celular
           Card(
             elevation: 3.0,
             child: Container(
@@ -123,32 +90,20 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   Radius.circular(5.0),
                 ),
               ),
-              child: TextField(
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
+              child:TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  filled: true,
                   hintText: "Celular",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
                     color: Colors.black,
                   ),
                 ),
-                maxLines: 1,
-                controller: _numeroCelular,
-              ),
-            ),
-          ), 
+                keyboardType: TextInputType.phone,
+              ) ,
+            ), 
+          ),
 
           //Precio
            Card(
@@ -170,6 +125,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                     color: Colors.black,
                   ),
                 ),
+                maxLines: 1,
               ) ,
             ), 
           ),
