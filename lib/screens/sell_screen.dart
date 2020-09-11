@@ -113,47 +113,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
             ),
           ),
 
-          //Precio
-          Card(
-            elevation: 3.0,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-              ),
-              child: TextField(
-                /*keyboardType: TextInputType.number,
-                inputFormatters:[
-                  ThousandsFormatter()
-                ],*/
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  hintText: "Precio",
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.black,
-                  ),
-                ),
-                maxLines: 1,
-                controller: _precio,
-              ),
-            ),
-          ),
-
           //Numero de celular
           Card(
             elevation: 3.0,
@@ -190,6 +149,30 @@ class _FavoriteScreenState extends State<FavoriteScreen>
               ),
             ),
           ), 
+
+          //Precio
+           Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child:TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Precio",
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+              ) ,
+            ), 
+          ),
 
           //Descripcion
            Card(
