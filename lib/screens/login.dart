@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
+
+import '../util/const.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -151,6 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
+                      Constants().setIsLoged = true;
                       return MainScreen();
                     },
                   ),
@@ -177,6 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
+                      Constants().setIsLoged = false;
                       return MainScreen();
                     },
                   ),
