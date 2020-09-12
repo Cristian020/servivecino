@@ -6,6 +6,8 @@ import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/grid_product.dart';
 import 'package:restaurant_ui_kit/widgets/home_category.dart';
 
+import 'chat.dart';
+
 class CategoriesScreen extends StatefulWidget {
   @override
   _CategoriesScreenState createState() => _CategoriesScreenState();
@@ -39,7 +41,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return Notifications();
+                    return Chats();
                   },
                 ),
               );
