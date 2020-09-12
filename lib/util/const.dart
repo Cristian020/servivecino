@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  bool isLoged;
+  bool isLoged = true;
   bool get getIsLoged => isLoged;
   set setIsLoged(bool isLoged) => this.isLoged = isLoged;
 
