@@ -9,6 +9,8 @@ import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 
+import 'chat.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -40,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
-                      return Notifications();
+                      return Chats();
                     },
                   ),
                 );

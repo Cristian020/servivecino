@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Constants {
+  bool isLoged;
+  bool get getIsLoged => isLoged;
+  set setIsLoged(bool isLoged) => this.isLoged = isLoged;
+
   static String appName = "ForYou";
 
   //Colors for theme
