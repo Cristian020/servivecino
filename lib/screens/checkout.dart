@@ -1,4 +1,3 @@
-import 'package:credit_card/flutter_credit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/util/foods.dart';
@@ -99,7 +98,7 @@ class _CheckoutState extends State<Checkout> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (BuildContext context) {
-                        return MySample();
+                        return AddCreditCard();
                       },
                     ),
                   );
