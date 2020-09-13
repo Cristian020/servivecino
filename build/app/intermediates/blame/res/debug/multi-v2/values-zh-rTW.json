@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/luis/AndroidStudioProjects/mr_food_flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "C:\\Users\\LAURA\\Documents\\KONRAD\\Ingenieria de software\\Software 2\\Proyecto bitbucket\\master\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
             "map": [
                 {
-                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/f8657446d8ed44dfa62e17e39f24b407/jetified-play-services-basement-17.0.0/res/values-zh-rTW/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "161",
-                        "endOffsets": "412"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1127",
-                        "endColumns": "161",
-                        "endOffsets": "1284"
-                    }
-                },
-                {
-                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/b299e3677451439e7378764b9181568d/play-services-base-17.1.0/res/values-zh-rTW/values.xml",
+                    "source": "C:\\Users\\LAURA\\.gradle\\caches\\transforms-2\\files-2.1\\b299e3677451439e7378764b9181568d\\play-services-base-17.1.0\\res\\values-zh-rTW\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/32995bb3935206fd206cea8c6a640845/core-1.1.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "source": "C:\\Users\\LAURA\\.gradle\\caches\\transforms-2\\files-2.1\\32995bb3935206fd206cea8c6a640845\\core-1.1.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,6 +35,23 @@
                         "startOffsets": "2413",
                         "endColumns": "100",
                         "endOffsets": "2509"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\LAURA\\.gradle\\caches\\transforms-2\\files-2.1\\137c4827ad121409a8d0b8cb94685341\\jetified-play-services-basement-17.0.0\\res\\values-zh-rTW\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "161",
+                        "endOffsets": "412"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1127",
+                        "endColumns": "161",
+                        "endOffsets": "1284"
                     }
                 }
             ]

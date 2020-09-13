@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-class Constants{
 
-  static String appName = "MR. Food Express";
+class Constants {
+  bool isLoged = true;
+  bool get getIsLoged => isLoged;
+  set setIsLoged(bool isLoged) => this.isLoged = isLoged;
+
+  static String appName = "ForYou";
 
   //Colors for theme
 //  Color(0xfffcfcff);
@@ -16,7 +20,7 @@ class Constants{
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
-    accentColor:  lightAccent,
+    accentColor: lightAccent,
     cursorColor: lightAccent,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
@@ -53,6 +57,4 @@ class Constants{
 //      ),
     ),
   );
-
-
 }

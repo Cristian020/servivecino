@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:restaurant_ui_kit/screens/join.dart';
 
-
 class Walkthrough extends StatefulWidget {
   @override
   _WalkthroughState createState() => _WalkthroughState();
@@ -35,7 +34,6 @@ class _WalkthroughState extends State<Walkthrough> {
           pageColor: Theme.of(context).primaryColor,
         ),
       ),
-
       PageViewModel(
         "Tu pedido mas rapido",
         "Disfruta de otra actividad mientras tu pedido se prepara."
@@ -58,7 +56,6 @@ class _WalkthroughState extends State<Walkthrough> {
           pageColor: Theme.of(context).primaryColor,
         ),
       ),
-
       PageViewModel(
         "Tu celular es el localizador",
         "Te notificaremos a tu celular tan pronto este listo tu pedido."
@@ -85,7 +82,7 @@ class _WalkthroughState extends State<Walkthrough> {
     ];
 
     return WillPopScope(
-      onWillPop: ()=>Future.value(false),
+      onWillPop: () => Future.value(false),
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: Padding(
@@ -95,7 +92,7 @@ class _WalkthroughState extends State<Walkthrough> {
             onDone: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context){
+                  builder: (BuildContext context) {
                     return JoinApp();
                   },
                 ),
@@ -104,7 +101,7 @@ class _WalkthroughState extends State<Walkthrough> {
             onSkip: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context){
+                  builder: (BuildContext context) {
                     return JoinApp();
                   },
                 ),

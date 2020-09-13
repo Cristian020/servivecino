@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
 
-
+import '../util/const.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -10,19 +11,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final TextEditingController _usernameControl = new TextEditingController();
   final TextEditingController _passwordControl = new TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(20.0,0,20,0),
+      padding: EdgeInsets.fromLTRB(20.0, 0, 20, 0),
       child: ListView(
         shrinkWrap: true,
         children: <Widget>[
-
           SizedBox(height: 10.0),
           Container(
             alignment: Alignment.center,
@@ -38,9 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-
           SizedBox(height: 30.0),
-
           Card(
             elevation: 3.0,
             child: Container(
@@ -59,10 +55,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   contentPadding: EdgeInsets.all(10.0),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   hintText: "Usuario",
@@ -80,9 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-
           SizedBox(height: 10.0),
-
           Card(
             elevation: 3.0,
             child: Container(
@@ -101,10 +99,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   contentPadding: EdgeInsets.all(10.0),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   hintText: "Contraseña",
@@ -123,9 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-
           SizedBox(height: 10.0),
-
           Container(
             alignment: Alignment.centerRight,
             child: FlatButton(
@@ -137,12 +137,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Theme.of(context).accentColor,
                 ),
               ),
-              onPressed: (){},
+              onPressed: () {},
             ),
           ),
-
           SizedBox(height: 30.0),
-
           Container(
             height: 50.0,
             child: RaisedButton(
@@ -152,10 +150,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (BuildContext context){
+                    builder: (BuildContext context) {
+                      Constants().setIsLoged = true;
                       return MainScreen();
                     },
                   ),
@@ -164,19 +163,45 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Theme.of(context).accentColor,
             ),
           ),
-
           SizedBox(height: 10.0),
-          Divider(color: Theme.of(context).accentColor,),
+          Divider(
+            color: Theme.of(context).accentColor,
+          ),
           SizedBox(height: 10.0),
-
-
+          Container(
+            height: 50.0,
+            child: RaisedButton(
+              child: Text(
+                "Omitir".toUpperCase(),
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      Constants().setIsLoged = false;
+                      return MainScreen();
+                    },
+                  ),
+                );
+              },
+              color: Theme.of(context).accentColor,
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Divider(
+            color: Theme.of(context).accentColor,
+          ),
+          SizedBox(height: 10.0),
           Center(
             child: Container(
-              width: MediaQuery.of(context).size.width/2,
+              width: MediaQuery.of(context).size.width / 2,
               child: Row(
                 children: <Widget>[
                   RawMaterialButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     fillColor: Colors.blue[800],
                     shape: CircleBorder(),
                     elevation: 4.0,
@@ -189,9 +214,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-
                   RawMaterialButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     fillColor: Colors.white,
                     shape: CircleBorder(),
                     elevation: 4.0,
@@ -208,9 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-
           SizedBox(height: 20.0),
-
         ],
       ),
     );

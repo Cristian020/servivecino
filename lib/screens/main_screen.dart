@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
-import 'package:restaurant_ui_kit/screens/favorite_screen.dart';
+import 'package:restaurant_ui_kit/screens/sell_screen.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
-import 'package:restaurant_ui_kit/screens/notifications.dart';
+import 'package:restaurant_ui_kit/screens/chat.dart';
 import 'package:restaurant_ui_kit/screens/profile.dart';
 import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
-
+import 'package:restaurant_ui_kit/screens/join.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: ()=>Future.value(false),
+      onWillPop: () => Future.value(false),
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -34,14 +34,14 @@ class _MainScreenState extends State<MainScreen> {
           actions: <Widget>[
             IconButton(
               icon: IconBadge(
-                icon: Icons.notifications,
+                icon: Icons.message,
                 size: 22.0,
               ),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (BuildContext context){
-                      return Notifications();
+                    builder: (BuildContext context) {
+                      return Chats();
                     },
                   ),
                 );
@@ -50,7 +50,6 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-
         body: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller: _pageController,
@@ -61,15 +60,15 @@ class _MainScreenState extends State<MainScreen> {
             SearchScreen(),
             CartScreen(),
             Profile(),
+            JoinApp(),
           ],
         ),
-
         bottomNavigationBar: BottomAppBar(
           child: new Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              SizedBox(width:7),
+              SizedBox(width: 7),
               IconButton(
                 icon: Icon(
                   Icons.home,
@@ -77,25 +76,19 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 0
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(0),
+                    : Theme.of(context).textTheme.caption.color,
+                onPressed: () => _pageController.jumpToPage(0),
               ),
-
               IconButton(
-                icon:Icon(
-                  Icons.favorite,
+                icon: Icon(
+                  Icons.add,
                   size: 24.0,
                 ),
                 color: _page == 1
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(1),
+                    : Theme.of(context).textTheme.caption.color,
+                onPressed: () => _pageController.jumpToPage(1),
               ),
-
               IconButton(
                 icon: Icon(
                   Icons.search,
@@ -104,12 +97,9 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 2
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(2),
+                    : Theme.of(context).textTheme.caption.color,
+                onPressed: () => _pageController.jumpToPage(2),
               ),
-
               IconButton(
                 icon: IconBadge(
                   icon: Icons.shopping_cart,
@@ -117,26 +107,24 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 3
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(3),
+                    : Theme.of(context).textTheme.caption.color,
+                onPressed: () => _pageController.jumpToPage(3),
               ),
-
               IconButton(
-                icon: Icon(
-                  Icons.person,
-                  size: 24.0,
-                ),
-                color: _page == 4
-                    ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(4),
-              ),
-
-              SizedBox(width:7),
+                  icon: Icon(
+                    Icons.person,
+                    size: 24.0,
+                  ),
+                  color: _page == 4
+                      ? Theme.of(context).accentColor
+                      : Theme.of(context).textTheme.caption.color,
+                  onPressed: () {
+                    if (Constants().getIsLoged) {
+                      _pageController.jumpToPage(4);
+                    } else {}
+                    _pageController.jumpToPage(5);
+                  }),
+              SizedBox(width: 7),
             ],
           ),
           color: Theme.of(context).primaryColor,
@@ -149,9 +137,8 @@ class _MainScreenState extends State<MainScreen> {
           child: Icon(
             Icons.search,
           ),
-          onPressed: ()=>_pageController.jumpToPage(2),
+          onPressed: () => _pageController.jumpToPage(2),
         ),
-
       ),
     );
   }
