@@ -8,6 +8,7 @@ import 'package:restaurant_ui_kit/screens/profile.dart';
 import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
+import 'package:restaurant_ui_kit/screens/join.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -40,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
-                      return Notifications();
+                      return Chats();
                     },
                   ),
                 );
@@ -59,6 +60,7 @@ class _MainScreenState extends State<MainScreen> {
             SearchScreen(),
             CartScreen(),
             Profile(),
+            JoinApp(),
           ],
         ),
         bottomNavigationBar: BottomAppBar(
@@ -109,15 +111,19 @@ class _MainScreenState extends State<MainScreen> {
                 onPressed: () => _pageController.jumpToPage(3),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.person,
-                  size: 24.0,
-                ),
-                color: _page == 4
-                    ? Theme.of(context).accentColor
-                    : Theme.of(context).textTheme.caption.color,
-                onPressed: () => _pageController.jumpToPage(4),
-              ),
+                  icon: Icon(
+                    Icons.person,
+                    size: 24.0,
+                  ),
+                  color: _page == 4
+                      ? Theme.of(context).accentColor
+                      : Theme.of(context).textTheme.caption.color,
+                  onPressed: () {
+                    if (Constants().getIsLoged) {
+                      _pageController.jumpToPage(4);
+                    } else {}
+                    _pageController.jumpToPage(5);
+                  }),
               SizedBox(width: 7),
             ],
           ),

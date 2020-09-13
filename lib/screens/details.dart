@@ -6,6 +6,8 @@ import 'package:restaurant_ui_kit/util/foods.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
+import 'chat.dart';
+
 class ProductDetails extends StatefulWidget {
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -39,7 +41,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return Notifications();
+                    return Chats();
                   },
                 ),
               );
