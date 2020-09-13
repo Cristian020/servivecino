@@ -6,3 +6,7 @@
 .packages
 
 .dart_tool/package_config.json
+
+build/*
+
+.dart_tool/*
