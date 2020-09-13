@@ -8,12 +8,7 @@ import 'package:restaurant_ui_kit/screens/profile.dart';
 import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
-import 'package:restaurant_ui_kit/screens/login.dart';
-
-import '../util/const.dart';
-import 'chat.dart';
-import 'login.dart';
-import 'login.dart';
+import 'package:restaurant_ui_kit/screens/join.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -65,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
             SearchScreen(),
             CartScreen(),
             Profile(),
-            LoginScreen(),
+            JoinApp(),
           ],
         ),
         bottomNavigationBar: BottomAppBar(
