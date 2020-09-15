@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
@@ -14,21 +13,26 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(
+            Icons.keyboard_backspace,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+        centerTitle: true,
+        title: Text(
+          "Detalles de la Venta",
+        ),
+        elevation: 0.0,
+      ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
             SizedBox(height: 10.0),
-            Text(
-              "Venta",
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            SizedBox(height: 30),
-
+            
            //Nombre del Servicio
            Card(
             elevation: 3.0,
