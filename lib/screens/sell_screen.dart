@@ -9,6 +9,13 @@ class FavoriteScreen extends StatefulWidget {
   _FavoriteScreenState createState() => _FavoriteScreenState();
 }
 
+
+
+
+
+
+
+
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin<FavoriteScreen> {
   File _imageFile;
