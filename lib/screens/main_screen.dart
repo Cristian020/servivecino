@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
-import 'package:restaurant_ui_kit/screens/sell_screen.dart';
+//import 'package:restaurant_ui_kit/screens/sell_screen.dart';
+import 'package:restaurant_ui_kit/screens/viewSell.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
 import 'package:restaurant_ui_kit/screens/chat.dart';
 import 'package:restaurant_ui_kit/screens/profile.dart';
@@ -56,7 +57,8 @@ class _MainScreenState extends State<MainScreen> {
           onPageChanged: onPageChanged,
           children: <Widget>[
             Home(),
-            FavoriteScreen(),
+            ViewSells(),
+            //FavoriteScreen(),
             SearchScreen(),
             CartScreen(),
             Profile(),
