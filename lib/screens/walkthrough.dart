@@ -12,12 +12,12 @@ class _WalkthroughState extends State<Walkthrough> {
   Widget build(BuildContext context) {
     List<PageViewModel> pages = [
       PageViewModel(
-        "Con prisa, pero sin filas",
-        "Evita las filas en centros comerciales."
-            " disfruta de compartir con tu familia sin estres. "
-            "ordena tu comida desde cuakquier parte.",
+        "Quieres un servicio o haces servicios",
+        "Evita ir a lugares publicos por servicios."
+            " disfruta desde la comodidad de tú casa. "
+            "Ofreceremos los servicios que necesitas y cuando los necesita.",
         image: Image.asset(
-          "assets/on1.png",
+          "assets/image1.png",
           height: 175.0,
         ),
         decoration: PageDecoration(
@@ -35,11 +35,11 @@ class _WalkthroughState extends State<Walkthrough> {
         ),
       ),
       PageViewModel(
-        "Tu pedido mas rapido",
-        "Disfruta de otra actividad mientras tu pedido se prepara."
-            " no te afanes, la distancia no importa ",
+        "El servico más rapido",
+        "Espera en tú casa y disfruta de otra actividad."
+            " no te afanes, la distancia no importa",
         image: Image.asset(
-          "assets/on2.png",
+          "assets/image2.png",
           height: 185.0,
         ),
         decoration: PageDecoration(
@@ -58,11 +58,11 @@ class _WalkthroughState extends State<Walkthrough> {
       ),
       PageViewModel(
         "Tu celular es el localizador",
-        "Te notificaremos a tu celular tan pronto este listo tu pedido."
-            " Evita 'encartarte' con otro dispotitivo "
-            "vas a estar informado de tu pedido en cualquier lugar.",
+        "Te notificaremos a tu celular cuando la persona vaya a prestar el servicio."
+            " Evita perder tiempo yendo a que te presten servicios"
+            "vas a estar informado de todo el servicio a prestar.",
         image: Image.asset(
-          "assets/on3.png",
+          "assets/image3.png",
           height: 175.0,
         ),
         decoration: PageDecoration(
