@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:restaurant_ui_kit/util/foods.dart';
+//import 'package:restaurant_ui_kit/util/foods.dart';
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
 class FavoriteScreen extends StatefulWidget {
@@ -9,17 +9,19 @@ class FavoriteScreen extends StatefulWidget {
   _FavoriteScreenState createState() => _FavoriteScreenState();
 }
 
-
-
-
-
-
-
-
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin<FavoriteScreen> {
-  File _imageFile;
-  final _picker = ImagePicker();
+
+  File _image;
+  Future getImage() async {
+      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+      setState(() {
+        _image = image;
+          print('Image Path $_image');
+      });
+    }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -43,32 +45,36 @@ class _FavoriteScreenState extends State<FavoriteScreen>
         child: ListView(
           children: <Widget>[
             SizedBox(height: 10.0),
-
-            //Imagen 
-            Card(
-              elevation: 3.0,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5.0),
+              Padding(
+                padding: EdgeInsets.only(/*bottom: 5.0*/),
+                child: IconButton(
+                  alignment: Alignment.bottomRight,
+                  icon: Icon(
+                    Icons.photo_camera,
+                    size: 30.0,
                   ),
+                  onPressed: () {
+                    getImage();
+                  },
                 ),
               ),
-            ),
 
-            /*Container(
-                  height: MediaQuery.of(context).size.height / 3.2,
-                  width: MediaQuery.of(context).size.width,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      "${foods[1]['img']}",
-                      fit: BoxFit.cover,
+              Container(
+                height: MediaQuery.of(context).size.height / 3.8,
+                width: MediaQuery.of(context).size.width,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: (_image!=null)?Image.file(
+                    _image,
+                    fit: BoxFit.fill,
+                    ):Image.asset(
+                      "assets/addImage.png",
+                    //"https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    fit: BoxFit.fill,
                     ),
-                  ),
-                ),*/
-            
+                ),
+              ),
+
               //Nombre del Servicio
               Card(
               elevation: 3.0,
@@ -189,19 +195,20 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                 ) ,
               ), 
             ), 
-
-            //Boton Guardar
-            ButtonBar(
-              children: <Widget>[
-
-                FlatButton(
-                  child: Text('Guardar'),
-                  color: Colors.orange[900],
-                  onPressed: () {},
-                ),
-              ],
-            ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 50.0,
+        child: RaisedButton(
+          child: Text(
+            "Realizar venta",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          color: Theme.of(context).accentColor,
+          onPressed: () {},
         ),
       ),
     );
