@@ -29,6 +29,10 @@ dependencies:
   cloud_firestore: ^0.9.5+2
   firebase_auth:
   google_sign_in:
+ # camera:
+  path_provider:
+  path:
+  image_picker: 
 
 
 dev_dependencies:
@@ -55,6 +59,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/addImage.png
+    - assets/viewSellPhoto.jpg
     - assets/logo.png
     - assets/cc.png
     - assets/on1.png
