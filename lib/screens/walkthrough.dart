@@ -39,7 +39,7 @@ class _WalkthroughState extends State<Walkthrough> {
         "Espera en tú casa y disfruta de otra actividad."
             " no te afanes, la distancia no importa",
         image: Image.asset(
-          "assets/image2.png",
+          "assets/image2.jpg",
           height: 185.0,
         ),
         decoration: PageDecoration(
@@ -62,7 +62,7 @@ class _WalkthroughState extends State<Walkthrough> {
             " Evita perder tiempo yendo a que te presten servicios"
             "vas a estar informado de todo el servicio a prestar.",
         image: Image.asset(
-          "assets/image3.png",
+          "assets/image3.jpg",
           height: 175.0,
         ),
         decoration: PageDecoration(

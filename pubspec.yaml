@@ -32,7 +32,7 @@ dependencies:
  # camera:
   path_provider:
   path:
-  image_picker: 
+  image_picker: ^0.6.7+7
 
 
 dev_dependencies:
@@ -66,6 +66,9 @@ flutter:
     - assets/on1.png
     - assets/on2.png
     - assets/on3.png
+    - assets/image1.png
+    - assets/image2.jpg
+    - assets/image3.jpg
     - assets/food1.jpeg
     - assets/food2.jpeg
     - assets/food3.jpeg
