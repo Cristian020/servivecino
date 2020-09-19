@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\LAURA\\Documents\\KONRAD\\Ingenieria de software\\Software 2\\Proyecto bitbucket\\master\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk\\values-sk.xml",
+            "outputFile": "C:\\Users\\slobo\\Documents\\construccion\\software-engineering-ii-group-51-team-2\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk\\values-sk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LAURA\\.gradle\\caches\\transforms-2\\files-2.1\\b299e3677451439e7378764b9181568d\\play-services-base-17.1.0\\res\\values-sk\\values.xml",
+                    "source": "C:\\Users\\slobo\\.gradle\\caches\\transforms-2\\files-2.1\\6eb14f512292913515d869914807ad40\\play-services-base-17.1.0\\res\\values-sk\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\LAURA\\.gradle\\caches\\transforms-2\\files-2.1\\137c4827ad121409a8d0b8cb94685341\\jetified-play-services-basement-17.0.0\\res\\values-sk\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "197",
-                        "endOffsets": "444"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1262",
-                        "endColumns": "197",
-                        "endOffsets": "1455"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\LAURA\\.gradle\\caches\\transforms-2\\files-2.1\\32995bb3935206fd206cea8c6a640845\\core-1.1.0\\res\\values-sk\\values-sk.xml",
+                    "source": "C:\\Users\\slobo\\.gradle\\caches\\transforms-2\\files-2.1\\3aaf6e5219b7f981ec263df919098c6f\\core-1.1.0\\res\\values-sk\\values-sk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,6 +35,23 @@
                         "startOffsets": "2859",
                         "endColumns": "100",
                         "endOffsets": "2955"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\slobo\\.gradle\\caches\\transforms-2\\files-2.1\\4de06c67e2e913e171bf505d16c5292e\\jetified-play-services-basement-17.0.0\\res\\values-sk\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "197",
+                        "endOffsets": "444"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1262",
+                        "endColumns": "197",
+                        "endOffsets": "1455"
                     }
                 }
             ]
