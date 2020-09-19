@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/scheduler.dart' show timeDilation;
 
 import '../util/const.dart';
 
@@ -151,14 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      Constants().setIsLoged = true;
-                      return MainScreen();
-                    },
-                  ),
-                );
+                signInWithEmail();
               },
               color: Theme.of(context).accentColor,
             ),
@@ -235,6 +230,33 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: 20.0),
         ],
       ),
+    );
+  }
+
+  void signInWithEmail() async {
+    // marked async
+    UserCredential user;
+    try {
+      user = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: this._usernameControl.text,
+          password: this._passwordControl.text);
+    } catch (e) {
+      print(e.toString());
+    } finally {
+      if (user != null) {
+        // sign in successful!
+        _pushPage(context, MainScreen());
+      } else {
+        // sign in unsuccessful
+        print('sign in Not');
+        // ex: prompt the user to try again
+      }
+    }
+  }
+
+  void _pushPage(BuildContext context, Widget page) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => page),
     );
   }
 }
