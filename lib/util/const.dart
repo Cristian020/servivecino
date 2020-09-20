@@ -5,7 +5,7 @@ class Constants {
   bool get getIsLoged => isLoged;
   set setIsLoged(bool isLoged) => this.isLoged = isLoged;
 
-  static String appName = "ForYou";
+  static String appName = "Servivecino";
 
   //Colors for theme
 //  Color(0xfffcfcff);
