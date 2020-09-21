@@ -45,6 +45,31 @@ class _CheckoutState extends State<Checkout> {
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 130),
         child: ListView(
           children: <Widget>[
+            Text(
+              "Servicio",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            ListView.builder(
+              primary: false,
+              shrinkWrap: true,
+              itemCount: foods == null ? 0 : foods.length,
+              itemBuilder: (BuildContext context, int index) {
+//                Food food = Food.fromJson(foods[index]);
+                Map food = foods[index];
+//                print(foods);
+//                print(foods.length);
+                return CartItem(
+                  img: food['img'],
+                  isFav: false,
+                  name: food['name'],
+                  rating: 5.0,
+                  raters: 23,
+                );
+              },
+            ),
             SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,7 +134,9 @@ class _CheckoutState extends State<Checkout> {
                   color: Theme.of(context).accentColor,
                 ),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    return AddCreditCard();
+                  },
                   icon: Icon(
                     Icons.keyboard_arrow_down,
                   ),
@@ -117,31 +144,6 @@ class _CheckoutState extends State<Checkout> {
               ),
             ),
             SizedBox(height: 20.0),
-            Text(
-              "Items",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            ListView.builder(
-              primary: false,
-              shrinkWrap: true,
-              itemCount: foods == null ? 0 : foods.length,
-              itemBuilder: (BuildContext context, int index) {
-//                Food food = Food.fromJson(foods[index]);
-                Map food = foods[index];
-//                print(foods);
-//                print(foods.length);
-                return CartItem(
-                  img: food['img'],
-                  isFav: false,
-                  name: food['name'],
-                  rating: 5.0,
-                  raters: 23,
-                );
-              },
-            ),
           ],
         ),
       ),
@@ -151,49 +153,49 @@ class _CheckoutState extends State<Checkout> {
           child: ListView(
             physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(5.0),
-                    ),
-                  ),
-                  child: TextField(
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(10.0),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        borderSide: BorderSide(
-                          color: Colors.grey[200],
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.grey[200],
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      hintText: "Cupon",
-                      prefixIcon: Icon(
-                        Icons.redeem,
-                        color: Theme.of(context).accentColor,
-                      ),
-                      hintStyle: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                    maxLines: 1,
-                    controller: _couponlControl,
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.all(10),
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color: Colors.grey[200],
+              //       borderRadius: BorderRadius.all(
+              //         Radius.circular(5.0),
+              //       ),
+              //     ),
+              //     child: TextField(
+              //       style: TextStyle(
+              //         fontSize: 15.0,
+              //         color: Colors.black,
+              //       ),
+              //       decoration: InputDecoration(
+              //         contentPadding: EdgeInsets.all(10.0),
+              //         border: OutlineInputBorder(
+              //           borderRadius: BorderRadius.circular(5.0),
+              //           borderSide: BorderSide(
+              //             color: Colors.grey[200],
+              //           ),
+              //         ),
+              //         enabledBorder: OutlineInputBorder(
+              //           borderSide: BorderSide(
+              //             color: Colors.grey[200],
+              //           ),
+              //           borderRadius: BorderRadius.circular(5.0),
+              //         ),
+              //         hintText: "Cupon",
+              //         prefixIcon: Icon(
+              //           Icons.redeem,
+              //           color: Theme.of(context).accentColor,
+              //         ),
+              //         hintStyle: TextStyle(
+              //           fontSize: 15.0,
+              //           color: Colors.black,
+              //         ),
+              //       ),
+              //       maxLines: 1,
+              //       controller: _couponlControl,
+              //     ),
+              //   ),
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
