@@ -245,6 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } finally {
       if (user != null) {
         // sign in successful!
+        Constants().setIsLoged = true;
         _pushPage(context, MainScreen());
       } else {
         // sign in unsuccessful
