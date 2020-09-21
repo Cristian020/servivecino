@@ -43,7 +43,22 @@ class AddCreditCardState extends State<AddCreditCard> {
                     onCreditCardModelChange: onCreditCardModelChange,
                   ),
                 ),
-              )
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(5, 5, 10, 5),
+                width: 150.0,
+                height: 50.0,
+                child: FlatButton(
+                  color: Theme.of(context).accentColor,
+                  child: Text(
+                    "Agregar".toUpperCase(),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
             ],
           ),
         ),

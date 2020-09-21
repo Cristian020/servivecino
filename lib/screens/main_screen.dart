@@ -58,7 +58,6 @@ class _MainScreenState extends State<MainScreen> {
           children: <Widget>[
             Home(),
             ViewSells(),
-            //FavoriteScreen(),
             SearchScreen(),
             CartScreen(),
             Profile(),
@@ -123,8 +122,9 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                     if (Constants().getIsLoged) {
                       _pageController.jumpToPage(4);
-                    } else {}
-                    _pageController.jumpToPage(5);
+                    } else {
+                      _pageController.jumpToPage(5);
+                    }
                   }),
               SizedBox(width: 7),
             ],
