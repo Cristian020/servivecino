@@ -176,7 +176,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
-                      Constants().setIsLoged = false;
+                      Constants().setLogin(false);
+                      print(Constants().validateLogin());
                       return MainScreen();
                     },
                   ),
@@ -245,7 +246,8 @@ class _LoginScreenState extends State<LoginScreen> {
     } finally {
       if (user != null) {
         // sign in successful!
-        Constants().setIsLoged = true;
+        Constants().setLogin(true);
+        print(Constants().validateLogin());
         _pushPage(context, MainScreen());
       } else {
         // sign in unsuccessful
