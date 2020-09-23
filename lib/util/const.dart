@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Constants {
-  bool isLoged = false;
-  bool get getIsLoged => isLoged;
-  set setIsLoged(bool isLoged) => this.isLoged = isLoged;
+  Future<bool> validateLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool logged = (prefs.getBool('isLogged') ?? false);
+    return logged;
+  }
+
+  setLogin(logged) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLogged', logged);
+  }
 
   static String appName = "Servivecino";
 
