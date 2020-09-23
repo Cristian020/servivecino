@@ -62,7 +62,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      "${foods[1]['img']}",
+                      "${foods[0]['img']}",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -92,7 +92,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${foods[1]['name']}",
+              "${foods[0]['name']}",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -157,13 +157,6 @@ class _ProductDetailsState extends State<ProductDetails> {
               "Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor "
               "sit amet, consectetur adipiscing elit. Curabitur aliquet quam "
               "id dui posuere blandit. Pellentesque in ipsum id orci porta "
-              "dapibus. Vestibulum ante ipsum primis in faucibus orci luctus "
-              "et ultrices posuere cubilia Curae; Donec velit neque, auctor "
-              "sit amet aliquam vel, ullamcorper sit amet ligula. Donec"
-              " rutrum congue leo eget malesuada. Vivamus magna justo,"
-              " lacinia eget consectetur sed, convallis at tellus."
-              " Vivamus suscipit tortor eget felis porttitor volutpat."
-              " Donec rutrum congue leo eget malesuada."
               " Pellentesque in ipsum id orci porta dapibus.",
               style: TextStyle(
                 fontSize: 13,
