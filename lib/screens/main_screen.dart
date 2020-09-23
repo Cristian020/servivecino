@@ -120,11 +120,13 @@ class _MainScreenState extends State<MainScreen> {
                       ? Theme.of(context).accentColor
                       : Theme.of(context).textTheme.caption.color,
                   onPressed: () {
-                    if (Constants().getIsLoged) {
-                      _pageController.jumpToPage(4);
-                    } else {
-                      _pageController.jumpToPage(5);
-                    }
+                    print(Constants().validateLogin());
+                    Constants().validateLogin().then((value) => {
+                          if (value)
+                            {_pageController.jumpToPage(4)}
+                          else
+                            {_pageController.jumpToPage(5)}
+                        });
                   }),
               SizedBox(width: 7),
             ],

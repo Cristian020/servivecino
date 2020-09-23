@@ -467,10 +467,10 @@
       "name": "restaurant_ui_kit",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-09-21T00:24:56.384868Z",
+  "generated": "2020-09-23T00:23:30.191844Z",
   "generator": "pub",
   "generatorVersion": "2.10.0-110.3.beta"
 }
