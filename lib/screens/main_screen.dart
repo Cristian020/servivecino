@@ -39,15 +39,21 @@ class _MainScreenState extends State<MainScreen> {
                 size: 22.0,
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return Chats();
-                    },
-                  ),
-                );
+                print(Constants().validateLogin());
+                Constants().validateLogin().then((value) => {
+                      if (value)
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return Chats();
+                            },
+                          ),
+                        )
+                      else
+                        {_pageController.jumpToPage(5)}
+                    });
               },
-              tooltip: "Notificaciones",
+              tooltip: "Chat",
             ),
           ],
         ),
@@ -81,15 +87,22 @@ class _MainScreenState extends State<MainScreen> {
                 onPressed: () => _pageController.jumpToPage(0),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.add,
-                  size: 24.0,
-                ),
-                color: _page == 1
-                    ? Theme.of(context).accentColor
-                    : Theme.of(context).textTheme.caption.color,
-                onPressed: () => _pageController.jumpToPage(1),
-              ),
+                  icon: Icon(
+                    Icons.add,
+                    size: 24.0,
+                  ),
+                  color: _page == 1
+                      ? Theme.of(context).accentColor
+                      : Theme.of(context).textTheme.caption.color,
+                  onPressed: () {
+                    print(Constants().validateLogin());
+                    Constants().validateLogin().then((value) => {
+                          if (value)
+                            {_pageController.jumpToPage(1)}
+                          else
+                            {_pageController.jumpToPage(5)}
+                        });
+                  }),
               IconButton(
                 icon: Icon(
                   Icons.search,
@@ -102,15 +115,22 @@ class _MainScreenState extends State<MainScreen> {
                 onPressed: () => _pageController.jumpToPage(2),
               ),
               IconButton(
-                icon: IconBadge(
-                  icon: Icons.shopping_cart,
-                  size: 24.0,
-                ),
-                color: _page == 3
-                    ? Theme.of(context).accentColor
-                    : Theme.of(context).textTheme.caption.color,
-                onPressed: () => _pageController.jumpToPage(3),
-              ),
+                  icon: IconBadge(
+                    icon: Icons.shopping_cart,
+                    size: 24.0,
+                  ),
+                  color: _page == 3
+                      ? Theme.of(context).accentColor
+                      : Theme.of(context).textTheme.caption.color,
+                  onPressed: () {
+                    print(Constants().validateLogin());
+                    Constants().validateLogin().then((value) => {
+                          if (value)
+                            {_pageController.jumpToPage(3)}
+                          else
+                            {_pageController.jumpToPage(5)}
+                        });
+                  }),
               IconButton(
                   icon: Icon(
                     Icons.person,
@@ -120,11 +140,13 @@ class _MainScreenState extends State<MainScreen> {
                       ? Theme.of(context).accentColor
                       : Theme.of(context).textTheme.caption.color,
                   onPressed: () {
-                    if (Constants().getIsLoged) {
-                      _pageController.jumpToPage(4);
-                    } else {
-                      _pageController.jumpToPage(5);
-                    }
+                    print(Constants().validateLogin());
+                    Constants().validateLogin().then((value) => {
+                          if (value)
+                            {_pageController.jumpToPage(4)}
+                          else
+                            {_pageController.jumpToPage(5)}
+                        });
                   }),
               SizedBox(width: 7),
             ],
