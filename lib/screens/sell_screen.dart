@@ -198,6 +198,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           ],
         ),
       ),
+      
       bottomNavigationBar: Container(
         height: 50.0,
         child: RaisedButton(
