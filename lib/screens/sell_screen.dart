@@ -198,8 +198,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           ],
         ),
       ),
-      
-      bottomNavigationBar: Container(
+
+      /*bottomNavigationBar: Container(
         height: 50.0,
         child: RaisedButton(
           child: Text(
@@ -211,7 +211,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           color: Theme.of(context).accentColor,
           onPressed: () {},
         ),
-      ),
+      ),*/
     );
   }
   @override
