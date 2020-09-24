@@ -2,9 +2,7 @@ class Food {
   String img;
   String name;
 
-  Food(
-      {this.img,
-        this.name});
+  Food({this.img, this.name});
 
   Food.fromJson(Map<String, dynamic> json) {
     name = json['name'];

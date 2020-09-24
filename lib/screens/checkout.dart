@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:restaurant_ui_kit/util/foods.dart';
+import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
 import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
 
@@ -10,7 +10,7 @@ class Checkout extends StatefulWidget {
 }
 
 class _CheckoutState extends State<Checkout> {
-  final TextEditingController _couponlControl = new TextEditingController();
+  //final TextEditingController _couponlControl = new TextEditingController();
 
   @override
   void initState() {
