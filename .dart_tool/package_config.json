@@ -164,6 +164,18 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "firebase_database",
+      "rootUri": "file:///home/luis/.pub-cache/hosted/pub.dartlang.org/firebase_database-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "firebase_storage",
+      "rootUri": "file:///home/luis/.pub-cache/hosted/pub.dartlang.org/firebase_storage-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///home/luis/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -470,7 +482,7 @@
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-09-23T00:23:30.191844Z",
+  "generated": "2020-09-24T21:16:16.261220Z",
   "generator": "pub",
   "generatorVersion": "2.10.0-110.3.beta"
 }

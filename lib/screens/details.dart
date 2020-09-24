@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/chat.dart';
 import 'package:restaurant_ui_kit/util/comments.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
-import 'package:restaurant_ui_kit/util/foods.dart';
+import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
