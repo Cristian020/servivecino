@@ -34,7 +34,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "Platos",
+                  "Servicios",
                   style: TextStyle(
                     fontSize: 23,
                     fontWeight: FontWeight.w800,
@@ -158,6 +158,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
               itemBuilder: (BuildContext context, int index) {
 //                Food food = Food.fromJson(foods[index]);
                 Map food = foods[index];
+                readLoacationData();
 //                print(foods);
 //                print(foods.length);
                 return GridProduct(
