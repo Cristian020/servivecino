@@ -95,9 +95,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 childAspectRatio: MediaQuery.of(context).size.width /
                     (MediaQuery.of(context).size.height / 1.25),
               ),
-              itemCount: foods == null ? 0 : foods.length,
+              itemCount: services == null ? 0 : services.length,
               itemBuilder: (BuildContext context, int index) {
-                Map food = foods[index];
+                Map food = services[index];
                 return GridProduct(
                   img: food['img'],
                   isFav: false,
