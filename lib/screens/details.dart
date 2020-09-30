@@ -61,8 +61,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                   width: MediaQuery.of(context).size.width,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      "${foods[0]['img']}",
+                    child: Image.network(
+                      "${services[0]['img']}",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -92,7 +92,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${foods[0]['name']}",
+              "${services[0]['name']}",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,

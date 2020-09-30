@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -207,6 +208,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
+                      Constants().setLogin(false);
                       return MainScreen();
                     },
                   ),
