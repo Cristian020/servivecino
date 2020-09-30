@@ -78,12 +78,12 @@ class _SearchScreenState extends State<SearchScreen>
             shrinkWrap: true,
             primary: false,
             physics: NeverScrollableScrollPhysics(),
-            itemCount: foods == null ? 0 : foods.length,
+            itemCount: services == null ? 0 : services.length,
             itemBuilder: (BuildContext context, int index) {
-              Map food = foods[index];
+              Map service = services[index];
               return ListTile(
                 title: Text(
-                  "${food['name']}",
+                  "${service['name']}",
                   style: TextStyle(
 //                    fontSize: 15,
                     fontWeight: FontWeight.w900,
@@ -92,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen>
                 leading: CircleAvatar(
                   radius: 25.0,
                   backgroundImage: AssetImage(
-                    "${food['img']}",
+                    "${service['img']}",
                   ),
                 ),
                 trailing: Text(r"$10"),

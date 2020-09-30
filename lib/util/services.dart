@@ -11,10 +11,10 @@ Future<void> readLoacationData() async {
       items.add({"img": info["Imagen"], "name": info["Titulo"]});
       //print(result.data());
     });
-    foods = items;
+    services = items;
   });
 }
 
-List<Map> foods = [
+List<Map> services = [
   {"img": "https://picsum.photos/250?image=9", "name": "Servicio Demo"},
 ];

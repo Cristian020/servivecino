@@ -69,13 +69,13 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
             CarouselSlider(
               height: MediaQuery.of(context).size.height / 2.4,
               items: map<Widget>(
-                foods,
+                services,
                 (index, i) {
-                  Map food = foods[index];
+                  Map service = services[index];
                   return SliderItem(
-                    img: food['img'],
+                    img: service['img'],
                     isFav: false,
-                    name: food['name'],
+                    name: service['name'],
                     rating: 5.0,
                     raters: 23,
                   );
@@ -154,17 +154,17 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                 childAspectRatio: MediaQuery.of(context).size.width /
                     (MediaQuery.of(context).size.height / 1.25),
               ),
-              itemCount: foods == null ? 0 : foods.length,
+              itemCount: services == null ? 0 : services.length,
               itemBuilder: (BuildContext context, int index) {
-//                Food food = Food.fromJson(foods[index]);
-                Map food = foods[index];
+//                service service = service.fromJson(services[index]);
+                Map service = services[index];
                 readLoacationData();
-//                print(foods);
-//                print(foods.length);
+//                print(services);
+//                print(services.length);
                 return GridProduct(
-                  img: food['img'],
+                  img: service['img'],
                   isFav: false,
-                  name: food['name'],
+                  name: service['name'],
                   rating: 5.0,
                   raters: 23,
                 );

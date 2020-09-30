@@ -14,8 +14,15 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen>
     with AutomaticKeepAliveClientMixin<FavoriteScreen> {
-
-  final List<String> _tipos =['Mano de obra','Educación','Tecnología','Transporte','Recreacion','Belleza','Otro'];
+  final List<String> _tipos = [
+    'Mano de obra',
+    'Educación',
+    'Tecnología',
+    'Transporte',
+    'Recreacion',
+    'Belleza',
+    'Otro'
+  ];
   final formKey = GlobalKey<FormState>();
   File _image;
   String urlImage;
@@ -50,43 +57,44 @@ class _FavoriteScreenState extends State<FavoriteScreen>
         child: Form(
           key: formKey,
           child: ListView(
-            children: <Widget>[ 
+            children: <Widget>[
               SizedBox(height: 10.0),
-                Padding(
-                  padding: EdgeInsets.only(/*bottom: 5.0*/),
-                  child: IconButton(
-                    alignment: Alignment.bottomRight,
-                    icon: Icon(
-                      Icons.photo_camera,
-                      size: 30.0,
-                    ),
-                    onPressed: () {
-                      getImage();
-                    },
+              Padding(
+                padding: EdgeInsets.only(/*bottom: 5.0*/),
+                child: IconButton(
+                  alignment: Alignment.bottomRight,
+                  icon: Icon(
+                    Icons.photo_camera,
+                    size: 30.0,
                   ),
+                  onPressed: () {
+                    getImage();
+                  },
                 ),
+              ),
 
-                Container(
-                  height: MediaQuery.of(context).size.height / 2.8,
-                  width: MediaQuery.of(context).size.width,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: (_image!=null)?Image.file(
-                      _image,
-                      fit: BoxFit.fill,
-                      ):Image.asset(
-                        "assets/addImage.png",
-                      //"https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                      fit: BoxFit.fill,
-                      ),
-                      
-                  ),
+              Container(
+                height: MediaQuery.of(context).size.height / 2.8,
+                width: MediaQuery.of(context).size.width,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: (_image != null)
+                      ? Image.file(
+                          _image,
+                          fit: BoxFit.fill,
+                        )
+                      : Image.asset(
+                          "assets/addImage.png",
+                          //"https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                          fit: BoxFit.fill,
+                        ),
                 ),
+              ),
 
               SizedBox(height: 24.0),
               //Nombre del Servicio
               TextFormField(
-                decoration:const InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
@@ -99,18 +107,20 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   ),
                 ),
                 maxLines: 1,
-                validator: (value){
-                  return value.isEmpty ? "El titulo del servicio es requerido": null;
+                validator: (value) {
+                  return value.isEmpty
+                      ? "El titulo del servicio es requerido"
+                      : null;
                 },
-                onSaved: (value){
-                  return _tituloServicio=value;
+                onSaved: (value) {
+                  return _tituloServicio = value;
                 },
               ),
-              
+
               SizedBox(height: 10.0),
 
               DropdownButtonFormField(
-                items: _tipos.map((value){
+                items: _tipos.map((value) {
                   return DropdownMenuItem(
                     child: Text(
                       value,
@@ -118,21 +128,19 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                     value: value,
                   );
                 }).toList(),
-                onChanged: (selectAccountType){
+                onChanged: (selectAccountType) {
                   setState(() {
-                    _categoriaSeleccionada =selectAccountType;
+                    _categoriaSeleccionada = selectAccountType;
                   });
                 },
                 value: _categoriaSeleccionada,
                 isExpanded: false,
-                hint: Text(
-                  'Categoria'
-                ),
-                validator: (value){
-                  return value == null ? "La categoria es requerida": null ;
+                hint: Text('Categoria'),
+                validator: (value) {
+                  return value == null ? "La categoria es requerida" : null;
                 },
-                onSaved: (value){
-                  return _categoriaSeleccionada=value;
+                onSaved: (value) {
+                  return _categoriaSeleccionada = value;
                 },
               ),
 
@@ -153,11 +161,11 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   ),
                 ),
                 maxLines: 1,
-                validator: (value){
-                  return value.isEmpty ? "La dirección es requerida": null;
+                validator: (value) {
+                  return value.isEmpty ? "La dirección es requerida" : null;
                 },
-                onSaved: (value){
-                  return _direccion=value;
+                onSaved: (value) {
+                  return _direccion = value;
                 },
               ),
 
@@ -179,11 +187,13 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   ),
                 ),
                 maxLines: 1,
-                validator: (value){
-                  return value.isEmpty ? "El número de celular es requerido": null;
+                validator: (value) {
+                  return value.isEmpty
+                      ? "El número de celular es requerido"
+                      : null;
                 },
-                onSaved: (value){
-                  return _celular=value;
+                onSaved: (value) {
+                  return _celular = value;
                 },
               ),
 
@@ -193,26 +203,25 @@ class _FavoriteScreenState extends State<FavoriteScreen>
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
                     ),
-                  ),
-                  hintText: "Precio por su servicio",
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.black,
-                  ),
-                  prefixText: '\$',
-                  suffixText: 'COP',
-                  suffixStyle: TextStyle(color: Colors.orange)
-                ),
+                    hintText: "Precio por su servicio",
+                    hintStyle: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.black,
+                    ),
+                    prefixText: '\$',
+                    suffixText: 'COP',
+                    suffixStyle: TextStyle(color: Colors.orange)),
                 maxLines: 1,
-                validator: (value){
-                  return value.isEmpty ? "El precio es requerido": null;
+                validator: (value) {
+                  return value.isEmpty ? "El precio es requerido" : null;
                 },
-                onSaved: (value){
-                  return _precio=value;
+                onSaved: (value) {
+                  return _precio = value;
                 },
               ),
 
@@ -233,23 +242,23 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   ),
                 ),
                 maxLines: 7,
-                validator: (value){
-                  return value.isEmpty ? "La descripción es requerida": null;
+                validator: (value) {
+                  return value.isEmpty ? "La descripción es requerida" : null;
                 },
-                onSaved: (value){
-                  return _descripcion=value ;
+                onSaved: (value) {
+                  return _descripcion = value;
                 },
               ),
 
               RaisedButton(
                 child: Text(
-                    "Realizar venta",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                  "Realizar venta",
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
-                  color: Theme.of(context).accentColor,
-                  onPressed: subirDatosDatabase,
+                ),
+                color: Theme.of(context).accentColor,
+                onPressed: subirDatosDatabase,
               )
               /*bottomNavigationBar: Container(
                 height: 50.0,
@@ -268,39 +277,42 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           ),
         ),
       ),
-      
-    ); 
+    );
   }
 
   //Obtener imagen
   Future getImage() async {
-      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-      setState(() {
-        _image = image;
-          print('Image Path $_image');
-      });
-    }
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      _image = image;
+      print('Image Path $_image');
+    });
+  }
 
   //Validar formulario
-  bool validacionFormulario(){
-    final form=formKey.currentState;
-    if(form.validate()){
+  bool validacionFormulario() {
+    final form = formKey.currentState;
+    if (form.validate()) {
       form.save();
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  void subirDatosDatabase()async{
-    if(validacionFormulario()){
+  void subirDatosDatabase() async {
+    if (validacionFormulario()) {
       //Subir imagen
-      final StorageReference imagenReferencia = FirebaseStorage.instance.ref().child("Servicio_imagenes");
+      final StorageReference imagenReferencia =
+          FirebaseStorage.instance.ref().child("Servicio_imagenes");
       var obtenerFechaHoraImagen = DateTime.now();
-      final StorageUploadTask subirFotoData = imagenReferencia.child(obtenerFechaHoraImagen.toString()+"jpg").putFile(_image);
-      var obtenerUrlImagen = await (await subirFotoData.onComplete).ref.getDownloadURL();
+      final StorageUploadTask subirFotoData = imagenReferencia
+          .child(obtenerFechaHoraImagen.toString() + "jpg")
+          .putFile(_image);
+      var obtenerUrlImagen =
+          await (await subirFotoData.onComplete).ref.getDownloadURL();
       urlImage = obtenerUrlImagen.toString();
-      print("Imagen url: "+urlImage);
+      print("Imagen url: " + urlImage);
 
       //Subir formulario a DataBase
       subirFormulario(urlImage);
@@ -309,7 +321,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
     }
   }
 
-  void subirFormulario(String urlImage) async{
+  void subirFormulario(String urlImage) async {
     var fechaActual = DateTime.now();
     var formatoFecha = DateFormat('MMM d, yyyy');
     var formatoHora = DateFormat('EEEE, hh:mm aaa');
@@ -318,7 +330,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
     String hora = formatoHora.format(fechaActual);
 
     //DatabaseReference ref = FirebaseDatabase.instance.reference();
-    var datosFormulario ={
+    var datosFormulario = {
       "Imagen": urlImage,
       "Titulo": _tituloServicio,
       "Categoria": _categoriaSeleccionada,
@@ -327,7 +339,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Precio": _precio,
       "Descripcion": _descripcion,
       "Fecha": fecha,
-      "Hora" : hora
+      "Hora": hora
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);

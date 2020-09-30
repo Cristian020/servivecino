@@ -20,10 +20,10 @@ class AddCreditCardState extends State<AddCreditCard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Credit Card View Demo',
+      //title: 'Flutter Credit Card View Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       home: Scaffold(
         resizeToAvoidBottomInset: true,
