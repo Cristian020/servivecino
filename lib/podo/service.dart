@@ -1,10 +1,10 @@
-class Food {
+class Service {
   String img;
   String name;
 
-  Food({this.img, this.name});
+  Service({this.img, this.name});
 
-  Food.fromJson(Map<String, dynamic> json) {
+  Service.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     img = json['img'];
   }

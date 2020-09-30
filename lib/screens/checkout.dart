@@ -55,16 +55,16 @@ class _CheckoutState extends State<Checkout> {
             ListView.builder(
               primary: false,
               shrinkWrap: true,
-              itemCount: foods == null ? 0 : foods.length,
+              itemCount: services == null ? 0 : services.length,
               itemBuilder: (BuildContext context, int index) {
-//                Food food = Food.fromJson(foods[index]);
-                Map food = foods[index];
-//                print(foods);
-//                print(foods.length);
+//                service service = service.fromJson(services[index]);
+                Map service = services[index];
+//                print(services);
+//                print(services.length);
                 return CartItem(
-                  img: food['img'],
+                  img: service['img'],
                   isFav: false,
-                  name: food['name'],
+                  name: service['name'],
                   rating: 5.0,
                   raters: 23,
                 );

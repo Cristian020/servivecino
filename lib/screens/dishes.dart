@@ -70,11 +70,11 @@ class _DishesScreenState extends State<DishesScreen> {
               ),
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                Map food = foods[index];
+                Map service = services[index];
                 return GridProduct(
-                  img: food['img'],
+                  img: service['img'],
                   isFav: false,
-                  name: food['name'],
+                  name: service['name'],
                   rating: 5.0,
                   raters: 23,
                 );
@@ -101,11 +101,11 @@ class _DishesScreenState extends State<DishesScreen> {
               ),
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                Map food = foods[index];
+                Map service = services[index];
                 return GridProduct(
-                  img: food['img'],
+                  img: service['img'],
                   isFav: false,
-                  name: food['name'],
+                  name: service['name'],
                   rating: 5.0,
                   raters: 23,
                 );
@@ -132,11 +132,11 @@ class _DishesScreenState extends State<DishesScreen> {
               ),
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                Map food = foods[index];
+                Map service = services[index];
                 return GridProduct(
-                  img: food['img'],
+                  img: service['img'],
                   isFav: false,
-                  name: food['name'],
+                  name: service['name'],
                   rating: 5.0,
                   raters: 23,
                 );
