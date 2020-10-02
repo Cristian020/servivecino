@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
 class FavoriteScreen extends StatefulWidget {
@@ -31,6 +32,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   String _celular;
   String _precio;
   String _descripcion;
+  String _email;
+  String _user;
   var _categoriaSeleccionada;
   final databaseReference = Firestore.instance;
 
@@ -301,6 +304,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   }
 
   void subirDatosDatabase() async {
+    Constants().validateEmail().then((value) => {_email = value});
+    Constants().validateUserToken().then((value) => {_user = value});
     if (validacionFormulario()) {
       //Subir imagen
       final StorageReference imagenReferencia =
@@ -339,7 +344,9 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Precio": _precio,
       "Descripcion": _descripcion,
       "Fecha": fecha,
-      "Hora": hora
+      "Hora": hora,
+      "Mail": _email,
+      "User": _user
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);
