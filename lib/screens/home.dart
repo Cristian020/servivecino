@@ -4,6 +4,7 @@ import 'package:restaurant_ui_kit/widgets/grid_product.dart';
 import 'package:restaurant_ui_kit/widgets/home_category.dart';
 import 'package:restaurant_ui_kit/widgets/slider_item.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
+import 'package:restaurant_ui_kit/util/own_services.dart';
 import 'package:restaurant_ui_kit/util/categories.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -13,6 +14,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
+  @override
+  bool get wantKeepAlive => true;
+
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
@@ -158,7 +162,8 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
               itemBuilder: (BuildContext context, int index) {
 //                service service = service.fromJson(services[index]);
                 Map service = services[index];
-                readLoacationData();
+                readServicesData();
+                readOwnServicesData();
 //                print(services);
 //                print(services.length);
                 return GridProduct(
@@ -177,7 +182,4 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
       ),
     );
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }
