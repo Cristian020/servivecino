@@ -247,7 +247,9 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user != null) {
         // sign in successful!
         Constants().setLogin(true);
-        print(Constants().validateLogin());
+        Constants().setEmail(this._usernameControl.text);
+        Constants().setUserToken(user.user.uid.toString());
+
         _pushPage(context, MainScreen());
       } else {
         // sign in unsuccessful
