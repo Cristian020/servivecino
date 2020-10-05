@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -10,8 +11,8 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _usernameControl = new TextEditingController();
-  final TextEditingController _emailControl = new TextEditingController();
   final TextEditingController _passwordControl = new TextEditingController();
+  final TextEditingController _firstNameControl = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +109,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
-                  hintText: "Correo",
+                  hintText: "Nombre",
                   prefixIcon: Icon(
-                    Icons.mail_outline,
+                    Icons.assignment_ind,
                     color: Colors.black,
                   ),
                   hintStyle: TextStyle(
@@ -119,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 maxLines: 1,
-                controller: _emailControl,
+                controller: _firstNameControl,
               ),
             ),
           ),
@@ -179,6 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               onPressed: () {
+                signInWithEmail();
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -262,6 +264,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
           SizedBox(height: 20.0),
         ],
       ),
+    );
+  }
+
+  void signInWithEmail() async {
+    // marked async
+    UserCredential user;
+    try {
+      user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: this._usernameControl.text,
+          password: this._passwordControl.text);
+    } catch (e) {
+      print(e.toString());
+    } finally {
+      if (user != null) {
+        // sign in successful!
+        Constants().setLogin(true);
+        Constants().setEmail(this._usernameControl.text);
+        Constants().setUserToken(user.user.uid.toString());
+
+        _pushPage(context, MainScreen());
+      } else {
+        // sign in unsuccessful
+        print('sign in Not');
+        // ex: prompt the user to try again
+      }
+    }
+  }
+
+  void _pushPage(BuildContext context, Widget page) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => page),
     );
   }
 }
