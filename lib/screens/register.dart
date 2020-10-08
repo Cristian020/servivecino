@@ -358,9 +358,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
               onPressed: () {
                 //signInWithEmail();
                 UserModel.signUp(
-                    name: _firstNameControl.text,
-                    email: _usernameControl.text,
-                    password: _passwordControl.text);
+                  email: _usernameControl.text,
+                  password: _passwordControl.text,
+                  name: _firstNameControl.text,
+                  lastName: _lastNameControl.text,
+                  telefono: _telefonoControl.text,
+                  document: _documentControl.text,
+                  direccion: _direccionControl.text,
+                );
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -452,8 +457,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     UserCredential user;
     try {
       user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: this._usernameControl.text,
-          password: this._passwordControl.text);
+        email: this._usernameControl.text,
+        password: this._passwordControl.text,
+      );
     } catch (e) {
       print(e.toString());
     } finally {
