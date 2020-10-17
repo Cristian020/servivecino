@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:restaurant_ui_kit/Users.dart';
+import 'package:restaurant_ui_kit/users.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
