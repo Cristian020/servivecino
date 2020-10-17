@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:restaurant_ui_kit/Users.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -10,8 +12,12 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _usernameControl = new TextEditingController();
-  final TextEditingController _emailControl = new TextEditingController();
   final TextEditingController _passwordControl = new TextEditingController();
+  final TextEditingController _firstNameControl = new TextEditingController();
+  final TextEditingController _lastNameControl = new TextEditingController();
+  final TextEditingController _telefonoControl = new TextEditingController();
+  final TextEditingController _documentControl = new TextEditingController();
+  final TextEditingController _direccionControl = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
-                  hintText: "Usuario",
+                  hintText: "email",
                   prefixIcon: Icon(
                     Icons.perm_identity,
                     color: Colors.black,
@@ -76,50 +82,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 maxLines: 1,
                 controller: _usernameControl,
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0),
-          Card(
-            elevation: 3.0,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-              ),
-              child: TextField(
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                    ),
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  hintText: "Correo",
-                  prefixIcon: Icon(
-                    Icons.mail_outline,
-                    color: Colors.black,
-                  ),
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.black,
-                  ),
-                ),
-                maxLines: 1,
-                controller: _emailControl,
               ),
             ),
           ),
@@ -168,6 +130,221 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
           ),
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Nombre",
+                  prefixIcon: Icon(
+                    Icons.assignment_ind,
+                    color: Colors.black,
+                  ),
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _firstNameControl,
+              ),
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Apellido",
+                  prefixIcon: Icon(
+                    Icons.assignment_ind,
+                    color: Colors.black,
+                  ),
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _lastNameControl,
+              ),
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Telefono",
+                  prefixIcon: Icon(
+                    Icons.phone_android,
+                    color: Colors.black,
+                  ),
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _telefonoControl,
+              ),
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Documento de Identidad",
+                  prefixIcon: Icon(
+                    Icons.recent_actors_sharp,
+                    color: Colors.black,
+                  ),
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _documentControl,
+              ),
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+              ),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  hintText: "Direccion",
+                  prefixIcon: Icon(
+                    Icons.where_to_vote_rounded,
+                    color: Colors.black,
+                  ),
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                  ),
+                ),
+                maxLines: 1,
+                controller: _direccionControl,
+              ),
+            ),
+          ),
           SizedBox(height: 40.0),
           Container(
             height: 50.0,
@@ -179,6 +356,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               onPressed: () {
+                //signInWithEmail();
+                UserModel.signUp(
+                  email: _usernameControl.text,
+                  password: _passwordControl.text,
+                  name: _firstNameControl.text,
+                  lastName: _lastNameControl.text,
+                  telefono: _telefonoControl.text,
+                  document: _documentControl.text,
+                  direccion: _direccionControl.text,
+                );
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -262,6 +449,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
           SizedBox(height: 20.0),
         ],
       ),
+    );
+  }
+
+  void signInWithEmail() async {
+    // marked async
+    UserCredential user;
+    try {
+      user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: this._usernameControl.text,
+        password: this._passwordControl.text,
+      );
+    } catch (e) {
+      print(e.toString());
+    } finally {
+      if (user != null) {
+        // sign in successful!
+        Constants().setLogin(true);
+        Constants().setEmail(this._usernameControl.text);
+        Constants().setUserToken(user.user.uid.toString());
+
+        _pushPage(context, MainScreen());
+      } else {
+        // sign in unsuccessful
+        print('sign in Not');
+        // ex: prompt the user to try again
+      }
+    }
+  }
+
+  void _pushPage(BuildContext context, Widget page) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => page),
     );
   }
 }
