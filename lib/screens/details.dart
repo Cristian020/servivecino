@@ -5,6 +5,8 @@ import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
+import 'package:restaurant_ui_kit/screens/cart.dart';
+import 'package:restaurant_ui_kit/screens/chats.dart';
 
 import 'chats.dart';
 
@@ -99,38 +101,38 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               maxLines: 2,
             ),
+            // Padding(
+            //   padding: EdgeInsets.only(bottom: 5.0, top: 2.0),
+            //   child: Row(
+            //     children: <Widget>[
+            //       SmoothStarRating(
+            //         starCount: 5,
+            //         color: Constants.ratingBG,
+            //         allowHalfRating: true,
+            //         rating: 5.0,
+            //         size: 10.0,
+            //       ),
+            //       SizedBox(width: 10.0),
+            //       Text(
+            //         "5.0 (23 Recomendaciones)",
+            //         style: TextStyle(
+            //           fontSize: 11.0,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Padding(
               padding: EdgeInsets.only(bottom: 5.0, top: 2.0),
               child: Row(
                 children: <Widget>[
-                  SmoothStarRating(
-                    starCount: 5,
-                    color: Constants.ratingBG,
-                    allowHalfRating: true,
-                    rating: 5.0,
-                    size: 10.0,
-                  ),
-                  SizedBox(width: 10.0),
-                  Text(
-                    "5.0 (23 Recomendaciones)",
-                    style: TextStyle(
-                      fontSize: 11.0,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 5.0, top: 2.0),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    "20 partes",
-                    style: TextStyle(
-                      fontSize: 11.0,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
+                  // Text(
+                  //   "20 partes",
+                  //   style: TextStyle(
+                  //     fontSize: 11.0,
+                  //     fontWeight: FontWeight.w300,
+                  //   ),
+                  // ),
                   SizedBox(width: 10.0),
                   Text(
                     r"$9000",
@@ -164,63 +166,79 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ),
             SizedBox(height: 20.0),
-            Text(
-              "Comentarios",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-              ),
-              maxLines: 2,
-            ),
+            // Text(
+            //   "Comentarios",
+            //   style: TextStyle(
+            //     fontSize: 18,
+            //     fontWeight: FontWeight.w800,
+            //   ),
+            //   maxLines: 2,
+            // ),
             SizedBox(height: 20.0),
-            ListView.builder(
-              shrinkWrap: true,
-              primary: false,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: comments == null ? 0 : comments.length,
-              itemBuilder: (BuildContext context, int index) {
-                Map comment = comments[index];
-                return ListTile(
-                  leading: CircleAvatar(
-                    radius: 25.0,
-                    backgroundImage: AssetImage(
-                      "${comment['img']}",
-                    ),
-                  ),
-                  title: Text("${comment['name']}"),
-                  subtitle: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          SmoothStarRating(
-                            starCount: 5,
-                            color: Constants.ratingBG,
-                            allowHalfRating: true,
-                            rating: 5.0,
-                            size: 12.0,
-                          ),
-                          SizedBox(width: 6.0),
-                          Text(
-                            "Febrero 14, 2020",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 7.0),
-                      Text(
-                        "${comment["comment"]}",
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+            // ListView.builder(
+            //   shrinkWrap: true,
+            //   primary: false,
+            //   physics: NeverScrollableScrollPhysics(),
+            //   itemCount: comments == null ? 0 : comments.length,
+            //   itemBuilder: (BuildContext context, int index) {
+            //     Map comment = comments[index];
+            //     return ListTile(
+            //       leading: CircleAvatar(
+            //         radius: 25.0,
+            //         backgroundImage: NetworkImage(
+            //           "${comment['img']}",
+            //         ),
+            //       ),
+            //       title: Text("${comment['name']}"),
+            //       subtitle: Column(
+            //         children: <Widget>[
+            //           Row(
+            //             children: <Widget>[
+            //               SmoothStarRating(
+            //                 starCount: 5,
+            //                 color: Constants.ratingBG,
+            //                 allowHalfRating: true,
+            //                 rating: 5.0,
+            //                 size: 12.0,
+            //               ),
+            //               SizedBox(width: 6.0),
+            //               Text(
+            //                 "Febrero 14, 2020",
+            //                 style: TextStyle(
+            //                   fontSize: 12,
+            //                   fontWeight: FontWeight.w300,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //           SizedBox(height: 7.0),
+            //           Text(
+            //             "${comment["comment"]}",
+            //           ),
+            //         ],
+            //       ),
+            //     );
+            //   },
+            // ),
             SizedBox(height: 10.0),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: "Contactar al vendedor",
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return Chats();
+              },
+            ),
+          );
+        },
+        child: Icon(
+          Icons.chat,
+        ),
+        heroTag: Object(),
       ),
       bottomNavigationBar: Container(
         height: 50.0,
@@ -232,7 +250,15 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
           ),
           color: Theme.of(context).accentColor,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return CartScreen();
+                },
+              ),
+            );
+          },
         ),
       ),
     );

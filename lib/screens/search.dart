@@ -91,7 +91,7 @@ class _SearchScreenState extends State<SearchScreen>
                 ),
                 leading: CircleAvatar(
                   radius: 25.0,
-                  backgroundImage: AssetImage(
+                  backgroundImage: NetworkImage(
                     "${service['img']}",
                   ),
                 ),
