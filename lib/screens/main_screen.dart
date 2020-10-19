@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
 import 'package:restaurant_ui_kit/screens/viewSell.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
-import 'package:restaurant_ui_kit/screens/chat.dart';
+import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/screens/profile.dart';
 import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
