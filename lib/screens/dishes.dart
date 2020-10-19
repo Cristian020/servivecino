@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/chat.dart';
+import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/grid_product.dart';
-
-import 'chat.dart';
+import 'chats.dart';
 
 class DishesScreen extends StatefulWidget {
   @override
