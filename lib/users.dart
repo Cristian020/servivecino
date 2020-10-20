@@ -26,6 +26,7 @@ class UserModel {
   String document;
   String direccion;
   String email;
+  static String userId;
 
   DocumentReference reference;
 
@@ -93,10 +94,10 @@ class UserModel {
       String document,
       String direccion,
       DocumentReference documentType}) async {
-    String uid = await (new Auth()).signUp(email, password);
+    UserModel.userId = await (new Auth()).signUp(email, password);
 
     Map<String, dynamic> userData = {
-      _authId: uid,
+      _authId: UserModel.userId,
       _name: name,
       _lastName: _lastName,
       _email: email,
