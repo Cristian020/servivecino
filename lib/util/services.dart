@@ -8,7 +8,15 @@ Future<void> readServicesData() async {
     List<Map> items = [];
     querySnapshot.documents.forEach((result) {
       var info = result.data();
-      items.add({"img": info["Imagen"], "name": info["Titulo"]});
+      items.add({
+        "img": info["Imagen"],
+        "name": info["Titulo"],
+        "desc": info['Descripcion'],
+        "precio": info['Precio'],
+        "celular": info['Celular'],
+        "categoria": info['Categoria'],
+        "dir": info['Direccion'],
+      });
       //print(result.data());
     });
     services = items;
