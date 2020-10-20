@@ -4,6 +4,8 @@ import 'package:restaurant_ui_kit/providers/app_provider.dart';
 import 'package:restaurant_ui_kit/screens/splash.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 
+String _user;
+
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
@@ -12,6 +14,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    Constants().validateEmail().then((value) => {_user = value});
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
@@ -50,7 +53,7 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            "jane@doefamily.com",
+                            _user,
                             style: TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.bold,
@@ -131,7 +134,7 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               subtitle: Text(
-                "jane@doefamily.com",
+                _user,
               ),
             ),
             // ListTile(
