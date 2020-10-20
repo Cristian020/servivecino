@@ -7,10 +7,13 @@ import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
 import 'package:restaurant_ui_kit/screens/chats.dart';
+import 'package:restaurant_ui_kit/screens/home.dart';
 
 import 'chats.dart';
 
 class ProductDetails extends StatefulWidget {
+  final int index;
+  ProductDetails({Key key, @required this.index});
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
 }
@@ -64,7 +67,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
-                      "${services[0]['img']}",
+                      "${services[widget.index]['img']}",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -94,7 +97,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${services[0]['name']}",
+              "${services[widget.index]['name']}",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -135,7 +138,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   // ),
                   SizedBox(width: 10.0),
                   Text(
-                    r"$9000",
+                    "${services[widget.index]['precio']}",
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w900,
@@ -156,10 +159,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor "
-              "sit amet, consectetur adipiscing elit. Curabitur aliquet quam "
-              "id dui posuere blandit. Pellentesque in ipsum id orci porta "
-              " Pellentesque in ipsum id orci porta dapibus.",
+              "${services[widget.index]['desc']}",
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w300,
