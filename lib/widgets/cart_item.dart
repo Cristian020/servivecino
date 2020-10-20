@@ -6,6 +6,9 @@ import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 class CartItem extends StatelessWidget {
   final String name;
   final String img;
+  final String descripcion;
+  final String precio;
+  final String comentarios;
   final bool isFav;
   final double rating;
   final int raters;
@@ -14,6 +17,9 @@ class CartItem extends StatelessWidget {
       {Key key,
       @required this.name,
       @required this.img,
+      @required this.descripcion,
+      @required this.precio,
+      @required this.comentarios,
       @required this.isFav,
       @required this.rating,
       @required this.raters})
@@ -91,9 +97,9 @@ class CartItem extends StatelessWidget {
                     ),
                     SizedBox(width: 10.0),
                     Text(
-                      r"$9000",
+                      "$precio",
                       style: TextStyle(
-                        fontSize: 14.0,
+                        //fontSize: 14.0,
                         fontWeight: FontWeight.w900,
                         color: Theme.of(context).accentColor,
                       ),

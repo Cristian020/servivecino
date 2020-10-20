@@ -9,9 +9,11 @@ class SliderItem extends StatelessWidget {
   final bool isFav;
   final double rating;
   final int raters;
+  final int index;
 
   SliderItem(
       {Key key,
+      @required this.index,
       @required this.name,
       @required this.img,
       @required this.isFav,
@@ -99,7 +101,7 @@ class SliderItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return ProductDetails();
+              return ProductDetails(index: this.index);
             },
           ),
         );

@@ -9,9 +9,11 @@ class GridProduct extends StatelessWidget {
   final bool isFav;
   final double rating;
   final int raters;
+  final int index;
 
   GridProduct(
       {Key key,
+      @required this.index,
       @required this.name,
       @required this.img,
       @required this.isFav,
@@ -99,7 +101,9 @@ class GridProduct extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return ProductDetails();
+              return ProductDetails(
+                index: this.index,
+              );
             },
           ),
         );
