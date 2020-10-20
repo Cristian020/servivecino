@@ -77,6 +77,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                 (index, i) {
                   Map service = services[index];
                   return SliderItem(
+                    index: index,
                     img: service['img'],
                     isFav: false,
                     name: service['name'],
@@ -167,6 +168,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 //                print(services);
 //                print(services.length);
                 return GridProduct(
+                  index: index,
                   img: service['img'],
                   isFav: false,
                   name: service['name'],
