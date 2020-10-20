@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/util/chats.dart';
+import 'package:restaurant_ui_kit/screens/chat_screen.dart';
 
 class Chats extends StatefulWidget {
   @override
@@ -35,6 +36,15 @@ class _ChatsState extends State<Chats> {
                       ),
                       title: new Text(dataDummy[i].title),
                       subtitle: new Text(dataDummy[i].message),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return ChatScreen();
+                            },
+                          ),
+                        );
+                      },
                     )
                   ],
                 )));
