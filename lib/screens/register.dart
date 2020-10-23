@@ -4,6 +4,7 @@ import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:restaurant_ui_kit/users.dart';
+import 'package:restaurant_ui_kit/screens/login.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -369,7 +370,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
-                      return MainScreen();
+                      Constants().setLogin(true);
+                      Constants().setEmail(this._usernameControl.text);
+                      return LoginScreen();
                     },
                   ),
                 );
