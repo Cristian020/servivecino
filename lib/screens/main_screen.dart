@@ -9,6 +9,7 @@ import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/screens/join.dart';
+import 'package:restaurant_ui_kit/util/services.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    readServicesData();
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(

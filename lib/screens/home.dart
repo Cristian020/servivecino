@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/dishes.dart';
+//import 'package:restaurant_ui_kit/screens/dishes.dart';
 import 'package:restaurant_ui_kit/widgets/grid_product.dart';
 import 'package:restaurant_ui_kit/widgets/home_category.dart';
 import 'package:restaurant_ui_kit/widgets/slider_item.dart';
@@ -44,25 +44,25 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                FlatButton(
-                  child: Text(
-                    "Ver Mas",
-                    style: TextStyle(
-//                      fontSize: 22,
-//                      fontWeight: FontWeight.w800,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return DishesScreen();
-                        },
-                      ),
-                    );
-                  },
-                ),
+//                 FlatButton(
+//                   child: Text(
+//                     "Ver Mas",
+//                     style: TextStyle(
+// //                      fontSize: 22,
+// //                      fontWeight: FontWeight.w800,
+//                       color: Theme.of(context).accentColor,
+//                     ),
+//                   ),
+//                   onPressed: () {
+//                     Navigator.of(context).push(
+//                       MaterialPageRoute(
+//                         builder: (BuildContext context) {
+//                           return DishesScreen();
+//                         },
+//                       ),
+//                     );
+//                   },
+//                 ),
               ],
             ),
 
@@ -135,17 +135,17 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                FlatButton(
-                  child: Text(
-                    "Ver Mas",
-                    style: TextStyle(
-//                      fontSize: 22,
-//                      fontWeight: FontWeight.w800,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  onPressed: () {},
-                ),
+//                 FlatButton(
+//                   child: Text(
+//                     "Ver Mas",
+//                     style: TextStyle(
+// //                      fontSize: 22,
+// //                      fontWeight: FontWeight.w800,
+//                       color: Theme.of(context).accentColor,
+//                     ),
+//                   ),
+//                   onPressed: () {},
+//                 ),
               ],
             ),
             SizedBox(height: 10.0),
