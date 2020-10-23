@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
-import 'package:restaurant_ui_kit/util/services.dart';
+import 'package:restaurant_ui_kit/util/own_services.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -78,9 +78,9 @@ class _SearchScreenState extends State<SearchScreen>
             shrinkWrap: true,
             primary: false,
             physics: NeverScrollableScrollPhysics(),
-            itemCount: services == null ? 0 : services.length,
+            itemCount: ownServices == null ? 0 : ownServices.length,
             itemBuilder: (BuildContext context, int index) {
-              Map service = services[index];
+              Map service = ownServices[index];
               return ListTile(
                 title: Text(
                   "${service['name']}",
