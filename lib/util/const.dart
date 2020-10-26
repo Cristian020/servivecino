@@ -38,6 +38,18 @@ class Constants {
     await prefs.setString('userToken', userToken);
   }
 
+  //Variable para almacenar palabra clave de busqueda
+  Future<String> validateKeyword() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String keyword = (prefs.getString('keyword'));
+    return keyword;
+  }
+
+  setKeyword(keyword) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('keyword', keyword);
+  }
+
   static String appName = "Servivecino";
 
   //Colors for theme

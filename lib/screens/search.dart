@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
-import 'package:restaurant_ui_kit/util/own_services.dart';
+import 'package:restaurant_ui_kit/util/search_services.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -60,6 +60,11 @@ class _SearchScreenState extends State<SearchScreen>
                 ),
                 maxLines: 1,
                 controller: _searchControl,
+                onChanged: (val) {
+                  Constants().setKeyword(val);
+                  readSearchServicesData();
+                  build(context);
+                },
               ),
             ),
           ),
@@ -67,7 +72,7 @@ class _SearchScreenState extends State<SearchScreen>
           Padding(
             padding: EdgeInsets.all(20.0),
             child: Text(
-              "Historial",
+              "Resultados",
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,

@@ -7,6 +7,7 @@ import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/screens/profile.dart';
 import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:restaurant_ui_kit/util/search_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/screens/join.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
@@ -23,6 +24,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     readServicesData();
+    readSearchServicesData();
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
