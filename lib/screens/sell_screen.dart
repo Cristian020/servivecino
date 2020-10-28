@@ -347,6 +347,17 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Hora": hora,
       "Mail": _email,
       "User": _user
+      // ,
+      // "Keywords": FieldValue.arrayUnion((_tituloServicio.toLowerCase() +
+      //         ',' +
+      //         _descripcion.toLowerCase() +
+      //         ',' +
+      //         _tituloServicio.toUpperCase() +
+      //         ',' +
+      //         _descripcion.toUpperCase())
+      //     .split(' ')
+      //     .map((String text) => Text(text))
+      //     .toList())
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);

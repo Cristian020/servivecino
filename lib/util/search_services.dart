@@ -11,17 +11,18 @@ Future<void> readSearchServicesData() async {
   Constants().validateKeyword().then((value) => {keyword = value});
   var query = await Firestore.instance
       .collection('formulario')
-      .orderBy('Titulo')
-      .startAt([keyword])
-      .endAt([keyword + '\uf8ff'])
+      //.orderBy('Keywords')
+      //.startAt([keyword])
+      //.endAt([keyword + '\uf8ff'])
+      .where('Keywords', arrayContains: keyword)
       .getDocuments()
       .then((querySnapshot) {
-        List<Map> items = [];
-        querySnapshot.documents.forEach((result) {
-          var info = result.data();
-          items.add({"img": info["Imagen"], "name": info["Titulo"]});
-          print(result.data());
-        });
-        ownServices = items;
-      });
+    List<Map> items = [];
+    querySnapshot.documents.forEach((result) {
+      var info = result.data();
+      items.add({"img": info["Imagen"], "name": info["Titulo"]});
+      //print(result.data());
+    });
+    ownServices = items;
+  });
 }
