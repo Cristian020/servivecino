@@ -61,9 +61,10 @@ class _SearchScreenState extends State<SearchScreen>
                 maxLines: 1,
                 controller: _searchControl,
                 onChanged: (val) {
-                  Constants().setKeyword(val);
-                  readSearchServicesData();
-                  build(context);
+                  setState(() {
+                    Constants().setKeyword(val);
+                    readSearchServicesData();
+                  });
                 },
               ),
             ),

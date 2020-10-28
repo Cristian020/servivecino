@@ -18,7 +18,12 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyApp createState() => _MyApp();
+}
+
+class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppProvider>(
