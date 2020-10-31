@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/sell_screen.dart';
 import 'package:restaurant_ui_kit/util/own_services.dart';
-import 'package:restaurant_ui_kit/widgets/grid_product.dart';
+import 'package:restaurant_ui_kit/widgets/grid_product_own_services.dart';
 
 class ViewSells extends StatefulWidget {
   @override
@@ -84,7 +84,8 @@ class _ViewSellState extends State<ViewSells>
                   Map service = ownServices[index];
 //                print(services);
 //                print(services.length);
-                  return GridProduct(
+                  return GridOwnProduct(
+                    index: index,
                     img: service['img'],
                     isFav: false,
                     name: service['name'],

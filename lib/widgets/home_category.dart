@@ -4,7 +4,7 @@ import 'package:restaurant_ui_kit/screens/categories_screen.dart';
 class HomeCategory extends StatefulWidget {
   final IconData icon;
   final String title;
-  final String items;
+  //final String items;
   final Function tap;
   final bool isHome;
 
@@ -12,7 +12,7 @@ class HomeCategory extends StatefulWidget {
       {Key key,
       @required this.icon,
       @required this.title,
-      @required this.items,
+      //@required this.items,
       this.tap,
       this.isHome})
       : super(key: key);
@@ -64,13 +64,13 @@ class _HomeCategoryState extends State<HomeCategory> {
                       fontSize: 17,
                     ),
                   ),
-                  Text(
-                    "${widget.items} Servicios",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 10,
-                    ),
-                  ),
+                  // Text(
+                  //   "${widget.items} Servicios",
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.w400,
+                  //     fontSize: 10,
+                  //   ),
+                  // ),
                   SizedBox(height: 5),
                 ],
               ),

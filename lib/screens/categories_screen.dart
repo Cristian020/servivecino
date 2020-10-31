@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/util/categories.dart';
-import 'package:restaurant_ui_kit/util/services.dart';
+import 'package:restaurant_ui_kit/util/category_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
-import 'package:restaurant_ui_kit/widgets/grid_product.dart';
+import 'package:restaurant_ui_kit/widgets/grid_category_product.dart';
 import 'package:restaurant_ui_kit/widgets/home_category.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
 
 import 'chats.dart';
 
@@ -14,7 +15,7 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
-  String catie = "Bebidas";
+  String catie = "Belleza";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,11 +66,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   return HomeCategory(
                     icon: cat['icon'],
                     title: cat['name'],
-                    items: cat['items'].toString(),
+                    //items: cat['items'].toString(),
                     isHome: false,
                     tap: () {
                       setState(() {
                         catie = "${cat['name']}";
+                        Constants().setCategory(catie);
+                        readCategoryServicesData();
                       });
                     },
                   );
@@ -95,13 +98,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 childAspectRatio: MediaQuery.of(context).size.width /
                     (MediaQuery.of(context).size.height / 1.25),
               ),
-              itemCount: services == null ? 0 : services.length,
+              itemCount: categoryServices == null ? 0 : categoryServices.length,
               itemBuilder: (BuildContext context, int index) {
-                Map food = services[index];
-                return GridProduct(
-                  img: food['img'],
+                Map services = categoryServices[index];
+                return GridCategoryProduct(
+                  index: index,
+                  img: services['img'],
                   isFav: false,
-                  name: food['name'],
+                  name: services['name'],
                   rating: 5.0,
                   raters: 23,
                 );
