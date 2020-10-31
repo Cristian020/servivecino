@@ -335,6 +335,10 @@ class _FavoriteScreenState extends State<FavoriteScreen>
     String hora = formatoHora.format(fechaActual);
 
     //DatabaseReference ref = FirebaseDatabase.instance.reference();
+    var keywords = {
+      (_tituloServicio.toLowerCase() + ' ' + _descripcion.toLowerCase())
+          .split(' ')
+    };
     var datosFormulario = {
       "Imagen": urlImage,
       "Titulo": _tituloServicio,
@@ -346,18 +350,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Fecha": fecha,
       "Hora": hora,
       "Mail": _email,
-      "User": _user
-      // ,
-      // "Keywords": FieldValue.arrayUnion((_tituloServicio.toLowerCase() +
-      //         ',' +
-      //         _descripcion.toLowerCase() +
-      //         ',' +
-      //         _tituloServicio.toUpperCase() +
-      //         ',' +
-      //         _descripcion.toUpperCase())
-      //     .split(' ')
-      //     .map((String text) => Text(text))
-      //     .toList())
+      "User": _user,
+      "Keywords": keywords.first
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);
