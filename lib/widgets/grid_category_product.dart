@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/details_own_services.dart';
+import 'package:restaurant_ui_kit/screens/details_category.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
-class GridOwnProduct extends StatelessWidget {
+class GridCategoryProduct extends StatelessWidget {
   final String name;
   final String img;
   final bool isFav;
@@ -11,7 +11,7 @@ class GridOwnProduct extends StatelessWidget {
   final int raters;
   final int index;
 
-  GridOwnProduct(
+  GridCategoryProduct(
       {Key key,
       @required this.index,
       @required this.name,

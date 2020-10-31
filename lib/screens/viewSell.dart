@@ -84,7 +84,7 @@ class _ViewSellState extends State<ViewSells>
                   Map service = ownServices[index];
 //                print(services);
 //                print(services.length);
-                  return GridProduct(
+                  return GridOwnProduct(
                     index: index,
                     img: service['img'],
                     isFav: false,

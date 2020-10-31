@@ -50,6 +50,18 @@ class Constants {
     await prefs.setString('keyword', keyword);
   }
 
+  //Variable para almacenar categoria de busqueda
+  Future<String> validateCategory() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String category = (prefs.getString('category'));
+    return category;
+  }
+
+  setCategory(category) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('category', category);
+  }
+
   static String appName = "Servivecino";
 
   //Colors for theme
