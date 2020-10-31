@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 
-String _user;
+String _category;
 
-List<Map> ownServices = [
+List<Map> categoryServices = [
   {"img": "https://picsum.photos/250?image=9", "name": "Servicio Demo"},
 ];
 
-Future<void> readOwnServicesData() async {
-  Constants().validateUserToken().then((value) => {_user = value});
+Future<void> readCategoryServicesData() async {
+  Constants().validateCategory().then((value) => {_category = value});
   var query = await Firestore.instance
       .collection('formulario')
-      .where('User', isEqualTo: _user)
+      .where('Categoria', isEqualTo: _category)
       .getDocuments()
       .then((querySnapshot) {
     List<Map> items = [];
@@ -26,8 +26,8 @@ Future<void> readOwnServicesData() async {
         "categoria": info['Categoria'],
         "dir": info['Direccion'],
       });
-      //print(result.data());
+      print(result.data());
     });
-    ownServices = items;
+    categoryServices = items;
   });
 }
