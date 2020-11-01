@@ -3,6 +3,8 @@ import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/search_services.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 
+import 'details_search.dart';
+
 class SearchScreen extends StatefulWidget {
   @override
   _SearchScreenState createState() => _SearchScreenState();
@@ -84,9 +86,9 @@ class _SearchScreenState extends State<SearchScreen>
             shrinkWrap: true,
             primary: false,
             physics: NeverScrollableScrollPhysics(),
-            itemCount: ownServices == null ? 0 : ownServices.length,
+            itemCount: searchServices == null ? 0 : searchServices.length,
             itemBuilder: (BuildContext context, int index) {
-              Map service = ownServices[index];
+              Map service = searchServices[index];
               return ListTile(
                 title: Text(
                   "${service['name']}",
@@ -121,7 +123,17 @@ class _SearchScreenState extends State<SearchScreen>
                     ),
                   ],
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return ProductDetails(
+                          index: index,
+                        );
+                      },
+                    ),
+                  );
+                },
               );
             },
           ),
