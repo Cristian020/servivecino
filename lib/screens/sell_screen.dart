@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:geolocator/geolocator.dart';
+
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
 class FavoriteScreen extends StatefulWidget {
@@ -36,6 +38,10 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   String _user;
   var _categoriaSeleccionada;
   final databaseReference = Firestore.instance;
+
+  //declarar variables latitud y longitud
+  double latitude;
+  double longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +98,22 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                           fit: BoxFit.fill,
                         ),
                 ),
+              ),
+
+              FutureBuilder(
+                future: _getCurrentLocation(),
+                builder:
+                    (BuildContext context, AsyncSnapshot<Position> snapshot) {
+                  if (snapshot.hasData) {
+                    longitude = snapshot.data.longitude.toDouble();
+                    latitude = snapshot.data.latitude.toDouble();
+                    return Text("");
+                  } else if (snapshot.hasError) {
+                    return Text("Error");
+                  } else {
+                    LinearProgressIndicator();
+                  }
+                },
               ),
 
               SizedBox(height: 24.0),
@@ -252,7 +274,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   return _descripcion = value;
                 },
               ),
-
               RaisedButton(
                 child: Text(
                   "Realizar venta",
@@ -290,6 +311,12 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       _image = image;
       print('Image Path $_image');
     });
+  }
+
+  //obtener ubicacion para guardarla
+  Future<Position> _getCurrentLocation() async {
+    Position position = await Geolocator.getCurrentPosition();
+    return position;
   }
 
   //Validar formulario
@@ -351,7 +378,9 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Hora": hora,
       "Mail": _email,
       "User": _user,
-      "Keywords": keywords.first
+      "Keywords": keywords.first,
+      "latitud": latitude,
+      "longitud": longitude
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);
