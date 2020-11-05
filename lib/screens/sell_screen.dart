@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
-import 'package:geolocator/geolocator.dart';
 
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
@@ -98,22 +97,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                           fit: BoxFit.fill,
                         ),
                 ),
-              ),
-
-              FutureBuilder(
-                future: _getCurrentLocation(),
-                builder:
-                    (BuildContext context, AsyncSnapshot<Position> snapshot) {
-                  if (snapshot.hasData) {
-                    longitude = snapshot.data.longitude.toDouble();
-                    latitude = snapshot.data.latitude.toDouble();
-                    return Text("");
-                  } else if (snapshot.hasError) {
-                    return Text("Error");
-                  } else {
-                    LinearProgressIndicator();
-                  }
-                },
               ),
 
               SizedBox(height: 24.0),
@@ -313,12 +296,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
     });
   }
 
-  //obtener ubicacion para guardarla
-  Future<Position> _getCurrentLocation() async {
-    Position position = await Geolocator.getCurrentPosition();
-    return position;
-  }
-
   //Validar formulario
   bool validacionFormulario() {
     final form = formKey.currentState;
@@ -333,6 +310,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   void subirDatosDatabase() async {
     Constants().validateEmail().then((value) => {_email = value});
     Constants().validateUserToken().then((value) => {_user = value});
+    Constants().validateLongitude().then((value) => {longitude = value});
+    Constants().validateLatitude().then((value) => {latitude = value});
     if (validacionFormulario()) {
       //Subir imagen
       final StorageReference imagenReferencia =

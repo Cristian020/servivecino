@@ -1,8 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
+
+double latitude;
+double longitude;
 
 Future<void> readServicesData() async {
+  Constants().validateLatitude().then((value) => {latitude = value});
+  Constants().validateLongitude().then((value) => {longitude = value});
   var query = await Firestore.instance
       .collection('formulario')
+      .where('latitud',
+          isGreaterThan: latitude - 0.02, isLessThanOrEqualTo: latitude + 0.02)
+      // .where('longitud',
+      //     isGreaterThanOrEqualTo: longitude - 0.02,
+      //     isLessThanOrEqualTo: longitude + 0.02)
       .getDocuments()
       .then((querySnapshot) {
     List<Map> items = [];
