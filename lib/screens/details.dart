@@ -8,6 +8,7 @@ import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
 import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
+import 'package:url_launcher/url_launcher.Dart';
 
 import 'chats.dart';
 
@@ -20,6 +21,7 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   bool isFav = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,13 +229,18 @@ class _ProductDetailsState extends State<ProductDetails> {
       floatingActionButton: FloatingActionButton(
         tooltip: "Contactar al vendedor",
         onPressed: () {
+          String poison = "${services[widget.index]['celular']}";
+          List<String> listlink = ["https://wa.me/57", poison];
+          String pruebita = listlink.join();
+          launch(pruebita);
+          /*
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
                 return Chats();
               },
             ),
-          );
+          );*/
         },
         child: Icon(
           Icons.chat,
