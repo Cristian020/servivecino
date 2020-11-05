@@ -8,7 +8,7 @@ import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
 import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
-import 'package:url_launcher/url_launcher.Dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'chats.dart';
 
