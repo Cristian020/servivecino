@@ -1,3 +1,5 @@
+import 'dart:wasm';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -60,6 +62,30 @@ class Constants {
   setCategory(category) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('category', category);
+  }
+
+  //Variable para almacenar latitud
+  Future<double> validateLatitude() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    double category = (prefs.getDouble('latitud'));
+    return category;
+  }
+
+  setLatitud(latitud) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble('latitud', latitud);
+  }
+
+  //Variable para almacenar longitud
+  Future<double> validateLongitude() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    double category = (prefs.getDouble('longitud'));
+    return category;
+  }
+
+  setLongitud(longitud) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble('longitud', longitud);
   }
 
   static String appName = "Servivecino";
