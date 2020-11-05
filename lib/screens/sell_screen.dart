@@ -40,8 +40,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   final databaseReference = Firestore.instance;
 
   //declarar variables latitud y longitud
-  String latitude;
-  String longitude;
+  double latitude;
+  double longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -105,8 +105,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                 builder:
                     (BuildContext context, AsyncSnapshot<Position> snapshot) {
                   if (snapshot.hasData) {
-                    longitude = snapshot.data.longitude.toString();
-                    latitude = snapshot.data.latitude.toString();
+                    longitude = snapshot.data.longitude.toDouble();
+                    latitude = snapshot.data.latitude.toDouble();
                     return Text("");
                   } else if (snapshot.hasError) {
                     return Text("Error");
