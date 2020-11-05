@@ -11,6 +11,7 @@ import 'package:restaurant_ui_kit/util/search_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/screens/join.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -20,6 +21,15 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   PageController _pageController;
   int _page = 0;
+  //declarar variables latitud y longitud
+  double latitude;
+  double longitude;
+
+  //obtener ubicacion para guardarla
+  Future<Position> _getCurrentLocation() async {
+    Position position = await Geolocator.getCurrentPosition();
+    return position;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -152,6 +162,23 @@ class _MainScreenState extends State<MainScreen> {
                         });
                   }),
               SizedBox(width: 7),
+              FutureBuilder(
+                future: _getCurrentLocation(),
+                builder:
+                    (BuildContext context, AsyncSnapshot<Position> snapshot) {
+                  if (snapshot.hasData) {
+                    longitude = snapshot.data.longitude.toDouble();
+                    Constants().setLongitud(longitude);
+                    latitude = snapshot.data.latitude.toDouble();
+                    Constants().setLatitud(latitude);
+                    return Text("");
+                  } else if (snapshot.hasError) {
+                    return Text("Error");
+                  } else {
+                    LinearProgressIndicator();
+                  }
+                },
+              ),
             ],
           ),
           color: Theme.of(context).primaryColor,
