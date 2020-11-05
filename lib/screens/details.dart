@@ -39,7 +39,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(
+          /* IconButton(
             icon: IconBadge(
               icon: Icons.notifications,
               size: 22.0,
@@ -53,7 +53,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
               );
             },
-          ),
+          ),*/
         ],
       ),
       body: Padding(
