@@ -33,7 +33,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         ),
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(
+          /*IconButton(
             icon: IconBadge(
               icon: Icons.notifications,
               size: 22.0,
@@ -47,7 +47,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 ),
               );
             },
-          ),
+          ),*/
         ],
       ),
       body: Padding(

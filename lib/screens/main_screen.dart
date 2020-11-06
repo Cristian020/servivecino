@@ -46,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           elevation: 0.0,
           actions: <Widget>[
-            IconButton(
+            /*IconButton(
               icon: IconBadge(
                 icon: Icons.message,
                 size: 22.0,
@@ -67,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
                     });
               },
               tooltip: "Chat",
-            ),
+            ),*/
           ],
         ),
         body: PageView(
