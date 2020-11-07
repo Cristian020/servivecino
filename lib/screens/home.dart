@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:restaurant_ui_kit/screens/dishes.dart';
 import 'package:restaurant_ui_kit/widgets/grid_product.dart';
 import 'package:restaurant_ui_kit/widgets/home_category.dart';
 import 'package:restaurant_ui_kit/widgets/slider_item.dart';
