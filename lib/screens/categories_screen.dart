@@ -32,23 +32,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           "Categorias",
         ),
         elevation: 0.0,
-        actions: <Widget>[
-          /*IconButton(
-            icon: IconBadge(
-              icon: Icons.notifications,
-              size: 22.0,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return Chats();
-                  },
-                ),
-              );
-            },
-          ),*/
-        ],
+        actions: <Widget>[],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
