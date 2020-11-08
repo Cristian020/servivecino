@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
@@ -37,6 +38,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   String _user;
   var _categoriaSeleccionada;
   final databaseReference = Firestore.instance;
+  final geo = Geoflutterfire();
 
   //declarar variables latitud y longitud
   double latitude;
@@ -345,6 +347,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       (_tituloServicio.toLowerCase() + ' ' + _descripcion.toLowerCase())
           .split(' ')
     };
+    GeoFirePoint location = geo.point(latitude: latitude, longitude: longitude);
     var datosFormulario = {
       "Imagen": urlImage,
       "Titulo": _tituloServicio,
@@ -358,8 +361,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Mail": _email,
       "User": _user,
       "Keywords": keywords.first,
-      "latitud": latitude,
-      "longitud": longitude
+      "Geopoint": location.geoPoint
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);
