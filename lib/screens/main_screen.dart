@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
 import 'package:restaurant_ui_kit/screens/viewSell.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/screens/profile.dart';
 import 'package:restaurant_ui_kit/screens/search.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
@@ -45,30 +44,7 @@ class _MainScreenState extends State<MainScreen> {
             Constants.appName,
           ),
           elevation: 0.0,
-          actions: <Widget>[
-            /*IconButton(
-              icon: IconBadge(
-                icon: Icons.message,
-                size: 22.0,
-              ),
-              onPressed: () {
-                print(Constants().validateLogin());
-                Constants().validateLogin().then((value) => {
-                      if (value)
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return Chats();
-                            },
-                          ),
-                        )
-                      else
-                        {_pageController.jumpToPage(5)}
-                    });
-              },
-              tooltip: "Chat",
-            ),*/
-          ],
+          actions: <Widget>[],
         ),
         body: PageView(
           physics: NeverScrollableScrollPhysics(),

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/util/search_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
-
-import 'chats.dart';
 
 class ProductDetails extends StatefulWidget {
   final int index;
@@ -34,23 +30,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           "Detalles",
         ),
         elevation: 0.0,
-        actions: <Widget>[
-          /*IconButton(
-            icon: IconBadge(
-              icon: Icons.notifications,
-              size: 22.0,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return Chats();
-                  },
-                ),
-              );
-            },
-          ),*/
-        ],
+        actions: <Widget>[],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
@@ -229,13 +209,6 @@ class _ProductDetailsState extends State<ProductDetails> {
           List<String> listlink = ["https://wa.me/57", poison];
           String pruebita = listlink.join();
           launch(pruebita);
-          /*Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return Chats();
-              },
-            ),
-          );*/
         },
         child: Icon(
           Icons.chat,

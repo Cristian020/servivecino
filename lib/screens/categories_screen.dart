@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/util/categories.dart';
 import 'package:restaurant_ui_kit/util/category_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/grid_category_product.dart';
 import 'package:restaurant_ui_kit/widgets/home_category.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
-
-import 'chats.dart';
 
 class CategoriesScreen extends StatefulWidget {
   @override
@@ -32,23 +29,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           "Categorias",
         ),
         elevation: 0.0,
-        actions: <Widget>[
-          /*IconButton(
-            icon: IconBadge(
-              icon: Icons.notifications,
-              size: 22.0,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return Chats();
-                  },
-                ),
-              );
-            },
-          ),*/
-        ],
+        actions: <Widget>[],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
