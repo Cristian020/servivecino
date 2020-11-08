@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/util/comments.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/screens/home.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'chats.dart';
 
 class ProductDetails extends StatefulWidget {
   final int index;

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/screens/chats.dart';
 import 'package:restaurant_ui_kit/util/own_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
-
-import 'chats.dart';
 
 class ProductDetails extends StatefulWidget {
   final int index;
