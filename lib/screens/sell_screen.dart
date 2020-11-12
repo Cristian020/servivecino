@@ -362,7 +362,9 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Mail": _email,
       "User": _user,
       "Keywords": keywords.first,
-      "Geopoint": location.geoPoint
+      "Geopoint": location.geoPoint,
+      "latitud": latitude,
+      "longitud": longitude
     };
 
     await databaseReference.collection("formulario").add(datosFormulario);
