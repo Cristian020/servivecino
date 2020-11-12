@@ -27,6 +27,8 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 
   @override
   Widget build(BuildContext context) {
+    readServicesData();
+    readOwnServicesData();
     super.build(context);
     if (services.length == 0) {
       return Scaffold(
