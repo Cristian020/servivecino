@@ -32,8 +32,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    readServicesData();
-    readSearchServicesData();
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
@@ -147,11 +145,14 @@ class _MainScreenState extends State<MainScreen> {
                     Constants().setLongitud(longitude);
                     latitude = snapshot.data.latitude.toDouble();
                     Constants().setLatitud(latitude);
+                    readServicesData();
+                    readSearchServicesData();
                     return Text("");
                   } else if (snapshot.hasError) {
                     return Text("Error");
                   } else {
                     LinearProgressIndicator();
+                    return Text("");
                   }
                 },
               ),
