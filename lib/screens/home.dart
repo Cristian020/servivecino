@@ -6,6 +6,7 @@ import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/util/own_services.dart';
 import 'package:restaurant_ui_kit/util/categories.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -25,6 +26,32 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
     return result;
   }
 
+  RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
+
+  void _onRefresh() async {
+    readServicesData();
+    readOwnServicesData();
+    // monitor network fetch
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async {
+    readServicesData();
+    readOwnServicesData();
+    // monitor network fetch
+    await Future.delayed(Duration(milliseconds: 1000));
+    // if failed,use loadFailed(),if no data return,use LoadNodata()
+    if (mounted)
+      setState(() {
+        readServicesData();
+        readOwnServicesData();
+      });
+    _refreshController.loadComplete();
+  }
+
   @override
   Widget build(BuildContext context) {
     readServicesData();
@@ -32,25 +59,27 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
     super.build(context);
     if (services.length == 0) {
       return Scaffold(
-        body: Padding(
-            padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-            child: ListView(children: <Widget>[
-              Image(
-                image: AssetImage('assets/Think.jpg'),
-                alignment: Alignment.bottomCenter,
-                height: 400,
-              ),
-              Text(
-                'No hay servicios cercanos donde usted se encuentra',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.blueGrey[100],
-                ),
-              ),
-            ])),
-      );
+          body: SmartRefresher(
+        child: ListView(children: <Widget>[
+          Image(
+            image: AssetImage('assets/Think.jpg'),
+            alignment: Alignment.bottomCenter,
+            height: 400,
+          ),
+          Text(
+            'No hay servicios cercanos donde usted se encuentra',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 28.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.blueGrey[100],
+            ),
+          ),
+        ]),
+        controller: _refreshController,
+        onRefresh: _onRefresh,
+        onLoading: _onLoading,
+      ));
     } else {
       return Scaffold(
         body: Padding(
