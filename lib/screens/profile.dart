@@ -130,7 +130,8 @@ class _ProfileState extends State<Profile> {
             // ),
             ListTile(
               title: Text(
-                "${infoServices[widget.index]['name']}",
+                "correo",
+                //"${infoServices[widget.index]['name']}",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
@@ -140,7 +141,7 @@ class _ProfileState extends State<Profile> {
                 user,
               ),
             ),
-            ListTile(
+            /*ListTile(
               title: Text(
                 "${infoServices[widget.index]['lastname']}",
                 style: TextStyle(
@@ -199,7 +200,7 @@ class _ProfileState extends State<Profile> {
               subtitle: Text(
                 user,
               ),
-            ),
+            ),*/
             // ListTile(
             //   title: Text(
             //     "Telefono",
