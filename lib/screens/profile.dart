@@ -3,10 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:restaurant_ui_kit/providers/app_provider.dart';
 import 'package:restaurant_ui_kit/screens/splash.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
+import 'package:restaurant_ui_kit/util/info_services.dart';
 
 String user = '';
 
 class Profile extends StatefulWidget {
+  final int index;
+  Profile({Key key, @required this.index});
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -127,7 +130,67 @@ class _ProfileState extends State<Profile> {
             // ),
             ListTile(
               title: Text(
-                "Correo",
+                "${infoServices[widget.index]['name']}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              subtitle: Text(
+                user,
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "${infoServices[widget.index]['lastname']}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              subtitle: Text(
+                user,
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "${infoServices[widget.index]['document']}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              subtitle: Text(
+                user,
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "${infoServices[widget.index]['telefono']}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              subtitle: Text(
+                user,
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "${infoServices[widget.index]['email']}",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              subtitle: Text(
+                user,
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "${infoServices[widget.index]['direccion']}",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
