@@ -41,6 +41,8 @@ Future<void> readServicesData() async {
 
   var query = await Firestore.instance
       .collection('formulario')
+      .where('latitud',
+          isGreaterThan: latitude - 0.02, isLessThanOrEqualTo: latitude + 0.02)
       .getDocuments()
       .then((querySnapshot) {
     List<Map> items = [];
