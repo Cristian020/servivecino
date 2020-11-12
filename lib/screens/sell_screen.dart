@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:restaurant_ui_kit/util/own_services.dart';
 
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
@@ -366,6 +367,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
 
     await databaseReference.collection("formulario").add(datosFormulario);
     //ref.child("Formulario").push().set(datosFormulario);
+    readOwnServicesData();
   }
 
   @override

@@ -67,8 +67,8 @@ class Constants {
   //Variable para almacenar latitud
   Future<double> validateLatitude() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    double category = (prefs.getDouble('latitud'));
-    return category;
+    double latitud = (prefs.getDouble('latitud'));
+    return latitud;
   }
 
   setLatitud(latitud) async {
@@ -79,8 +79,8 @@ class Constants {
   //Variable para almacenar longitud
   Future<double> validateLongitude() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    double category = (prefs.getDouble('longitud'));
-    return category;
+    double longitud = (prefs.getDouble('longitud'));
+    return longitud;
   }
 
   setLongitud(longitud) async {
