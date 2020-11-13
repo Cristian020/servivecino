@@ -114,7 +114,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   hintText: "Titulo para el servicio",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
-                    color: Colors.black,
+                    //color: Colors.black,
                   ),
                 ),
                 maxLines: 1,
@@ -168,7 +168,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   hintText: "Dirección",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
-                    color: Colors.black,
+                    //color: Colors.black,
                   ),
                 ),
                 maxLines: 1,
@@ -194,7 +194,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   hintText: "Celular",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
-                    color: Colors.black,
+                    //color: Colors.black,
                   ),
                 ),
                 maxLines: 1,
@@ -222,7 +222,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                     hintText: "Precio por su servicio",
                     hintStyle: TextStyle(
                       fontSize: 15.0,
-                      color: Colors.black,
+                      // color: Colors.black,
                     ),
                     prefixText: '\$',
                     suffixText: 'COP',
@@ -249,7 +249,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   hintText: "Descripción",
                   hintStyle: TextStyle(
                     fontSize: 15.0,
-                    color: Colors.black,
+                    //color: Colors.black,
                   ),
                 ),
                 maxLines: 7,
