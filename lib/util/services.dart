@@ -4,7 +4,7 @@ import 'package:geoflutterfire/geoflutterfire.dart';
 
 double latitude;
 double longitude;
-double radius = 5000;
+double radius = 3;
 String field = 'Geopoint';
 final geo = Geoflutterfire();
 final _firestore = FirebaseFirestore.instance;
