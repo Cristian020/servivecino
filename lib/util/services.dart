@@ -4,7 +4,7 @@ import 'package:geoflutterfire/geoflutterfire.dart';
 
 double latitude;
 double longitude;
-double radius = 50;
+double radius = 5000;
 String field = 'Geopoint';
 final geo = Geoflutterfire();
 final _firestore = FirebaseFirestore.instance;
@@ -14,40 +14,16 @@ Future<void> readServicesData() async {
   Constants().validateLongitude().then((value) => {longitude = value});
 
 // Create a geoFirePoint
-  // GeoFirePoint center = geo.point(latitude: latitude, longitude: longitude);
-  // var collectionReference = _firestore.collection('formulario');
-  // Stream<List<DocumentSnapshot>> stream = geo
-  //     .collection(collectionRef: collectionReference)
-  //     .within(center: center, radius: radius, field: field, strictMode: true);
-  // stream.listen((List<DocumentSnapshot> documentList) {
-  //   print(stream.length);
-  //   print(documentList[0].data());
-  //   List<Map> items = [];
-  //   documentList.forEach((DocumentSnapshot document) {
-  //     var info = document.data();
-  //     items.add({
-  //       "img": info["Imagen"],
-  //       "name": info["Titulo"],
-  //       "desc": info['Descripcion'],
-  //       "precio": info['Precio'],
-  //       "celular": info['Celular'],
-  //       "categoria": info['Categoria'],
-  //       "dir": info['Direccion'],
-  //     });
-  //     print(document.data());
-  //   });
-  //   services = items;
-  // });
-
-  var query = await Firestore.instance
-      .collection('formulario')
-      .where('latitud',
-          isGreaterThan: latitude - 0.02, isLessThanOrEqualTo: latitude + 0.02)
-      .getDocuments()
-      .then((querySnapshot) {
+  GeoFirePoint center = geo.point(latitude: latitude, longitude: longitude);
+  var collectionReference = _firestore.collection('formulario');
+  Stream<List<DocumentSnapshot>> stream = geo
+      .collection(collectionRef: collectionReference)
+      .within(center: center, radius: radius, field: field, strictMode: true);
+  stream.listen((List<DocumentSnapshot> documentList) {
+    print("Documentos en firebase: " + documentList.toString());
     List<Map> items = [];
-    querySnapshot.documents.forEach((result) {
-      var info = result.data();
+    documentList.forEach((DocumentSnapshot document) {
+      var info = document.data();
       items.add({
         "img": info["Imagen"],
         "name": info["Titulo"],
@@ -57,10 +33,33 @@ Future<void> readServicesData() async {
         "categoria": info['Categoria'],
         "dir": info['Direccion'],
       });
-      //print(result.data());
+      print(document.data());
     });
     services = items;
   });
+
+  // var query = await Firestore.instance
+  //     .collection('formulario')
+  //     .where('latitud',
+  //         isGreaterThan: latitude - 0.02, isLessThanOrEqualTo: latitude + 0.02)
+  //     .getDocuments()
+  //     .then((querySnapshot) {
+  //   List<Map> items = [];
+  //   querySnapshot.documents.forEach((result) {
+  //     var info = result.data();
+  //     items.add({
+  //       "img": info["Imagen"],
+  //       "name": info["Titulo"],
+  //       "desc": info['Descripcion'],
+  //       "precio": info['Precio'],
+  //       "celular": info['Celular'],
+  //       "categoria": info['Categoria'],
+  //       "dir": info['Direccion'],
+  //     });
+  //print(result.data());
+  //   });
+  //   services = items;
+  // });
 }
 
 List<Map> services = [
