@@ -40,7 +40,7 @@ dependencies:
   #registro de ubicacion
   location: ^3.0.2
   geolocator: ^6.1.4+1
-  geoflutterfire: ^2.2.1
+  geoflutterfire: ^2.1.0
   
   #Subir datos a la nube
   firebase_database: ^4.0.0
