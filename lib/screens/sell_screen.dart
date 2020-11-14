@@ -362,7 +362,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       "Mail": _email,
       "User": _user,
       "Keywords": keywords.first,
-      "Geopoint": location.geoPoint,
+      "Geopoint": location.data,
       "latitud": latitude,
       "longitud": longitude
     };
