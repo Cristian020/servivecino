@@ -4,6 +4,7 @@ import 'package:restaurant_ui_kit/widgets/badge.dart';
 import 'package:restaurant_ui_kit/screens/cart.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
+import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 
 class ProductDetails extends StatefulWidget {
   final int index;
@@ -233,6 +234,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 },
               ),
             );
+            shoppingCart.add(services[widget.index]);
           },
         ),
       ),
