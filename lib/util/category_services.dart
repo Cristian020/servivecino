@@ -26,7 +26,7 @@ Future<void> readCategoryServicesData() async {
         "categoria": info['Categoria'],
         "dir": info['Direccion'],
       });
-      print(result.data());
+      //print(result.data());
     });
     categoryServices = items;
   });
