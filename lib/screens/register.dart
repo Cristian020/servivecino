@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
 import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,6 +20,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _telefonoControl = new TextEditingController();
   final TextEditingController _documentControl = new TextEditingController();
   final TextEditingController _direccionControl = new TextEditingController();
+  String _tpagaToken;
 
   @override
   Widget build(BuildContext context) {
@@ -357,6 +359,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               onPressed: () {
+                createCustomer(
+                  _usernameControl.text,
+                  _firstNameControl.text,
+                  _lastNameControl.text,
+                  _documentControl.text,
+                  _telefonoControl.text,
+                );
+                Constants()
+                    .validateUserToken()
+                    .then((value) => {_tpagaToken = value});
                 //signInWithEmail();
                 UserModel.signUp(
                   email: _usernameControl.text,
@@ -366,6 +378,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   telefono: _telefonoControl.text,
                   document: _documentControl.text,
                   direccion: _direccionControl.text,
+                  tpagaToken: _tpagaToken,
                 );
                 Navigator.of(context).push(
                   MaterialPageRoute(

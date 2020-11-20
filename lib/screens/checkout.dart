@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:restaurant_ui_kit/pasarela/pay.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
 import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
@@ -308,7 +309,7 @@ class _CheckoutState extends State<Checkout> {
                       ),
                       onPressed: () {
                         //Aca va la funcionalidad de consumir api de pasarela
-                        createCustomer();
+                        createPay();
                       },
                     ),
                   ),

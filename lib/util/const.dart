@@ -88,6 +88,18 @@ class Constants {
     await prefs.setDouble('longitud', longitud);
   }
 
+  //Variable para almacenar token de customer
+  Future<String> validateCustomer() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String customer = (prefs.getString('customer'));
+    return customer;
+  }
+
+  setCustomer(customer) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('customer', customer);
+  }
+
   static String appName = "Servivecino";
 
   //Colors for theme
