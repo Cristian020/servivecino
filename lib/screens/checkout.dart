@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:restaurant_ui_kit/pasarela/pay.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
 import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
+import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
 
 class Checkout extends StatefulWidget {
   @override
@@ -16,6 +18,46 @@ class _CheckoutState extends State<Checkout> {
   void initState() {
     super.initState();
   }
+
+  final List<String> _numeroCuotas = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31',
+    '32',
+    '33',
+    '34',
+    '35',
+    '36'
+  ];
+  var _cuotaSeleccionada;
 
   @override
   Widget build(BuildContext context) {
@@ -143,6 +185,30 @@ class _CheckoutState extends State<Checkout> {
                 ),
               ),
             ),
+            DropdownButtonFormField(
+              items: _numeroCuotas.map((value) {
+                return DropdownMenuItem(
+                  child: Text(
+                    value,
+                  ),
+                  value: value,
+                );
+              }).toList(),
+              onChanged: (selectAccountType) {
+                setState(() {
+                  _cuotaSeleccionada = selectAccountType;
+                });
+              },
+              value: _cuotaSeleccionada,
+              isExpanded: false,
+              hint: Text('Numero de cuotas'),
+              validator: (value) {
+                return value == null ? "El numero de cuota es requerida" : null;
+              },
+              onSaved: (value) {
+                return _cuotaSeleccionada = value;
+              },
+            ),
             SizedBox(height: 20.0),
           ],
         ),
@@ -241,7 +307,10 @@ class _CheckoutState extends State<Checkout> {
                           color: Colors.white,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        //Aca va la funcionalidad de consumir api de pasarela
+                        createPay();
+                      },
                     ),
                   ),
                 ],

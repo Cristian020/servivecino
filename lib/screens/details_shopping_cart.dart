@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui_kit/util/comments.dart';
-import 'package:restaurant_ui_kit/util/const.dart';
-import 'package:restaurant_ui_kit/util/services.dart';
+import 'package:restaurant_ui_kit/util/own_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
-import 'package:restaurant_ui_kit/widgets/smooth_star_rating.dart';
-import 'package:restaurant_ui_kit/screens/cart.dart';
-import 'package:restaurant_ui_kit/screens/home.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 
 class ProductDetails extends StatefulWidget {
   final int index;
@@ -18,7 +11,6 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   bool isFav = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +27,6 @@ class _ProductDetailsState extends State<ProductDetails> {
           "Detalles",
         ),
         elevation: 0.0,
-        actions: <Widget>[],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
@@ -50,7 +41,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
-                      "${services[widget.index]['img']}",
+                      "${ownServices[widget.index]['img']}",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -80,7 +71,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${services[widget.index]['name']}",
+              "${ownServices[widget.index]['name']}",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -121,7 +112,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   // ),
                   SizedBox(width: 10.0),
                   Text(
-                    "${services[widget.index]['precio']}",
+                    "${ownServices[widget.index]['precio']}",
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w900,
@@ -142,7 +133,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${services[widget.index]['desc']}",
+              "${ownServices[widget.index]['desc']}",
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w300,
@@ -205,41 +196,6 @@ class _ProductDetailsState extends State<ProductDetails> {
             // ),
             SizedBox(height: 10.0),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: "Contactar al vendedor",
-        onPressed: () {
-          String poison = "${services[widget.index]['celular']}";
-          List<String> listlink = ["https://wa.me/57", poison];
-          String pruebita = listlink.join();
-          launch(pruebita);
-        },
-        child: Icon(
-          Icons.chat,
-        ),
-        heroTag: Object(),
-      ),
-      bottomNavigationBar: Container(
-        height: 50.0,
-        child: RaisedButton(
-          child: Text(
-            "Agregar al carrito",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          color: Theme.of(context).accentColor,
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return CartScreen();
-                },
-              ),
-            );
-            shoppingCart.add(services[widget.index]);
-          },
         ),
       ),
     );
