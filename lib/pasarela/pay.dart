@@ -2,8 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:restaurant_ui_kit/screens/payment_fail.dart';
 import 'package:restaurant_ui_kit/screens/payment_success.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
+
+String _paymentMethod;
 
 Future<http.Response> createPay() async {
+  Constants().validatePaymentMethod().then((value) => {_paymentMethod = value});
   final http.Response response = await http.post(
     'https://sandbox.tpaga.co/api/charge/credit_card',
     headers: <String, String>{
@@ -14,7 +18,7 @@ Future<http.Response> createPay() async {
     body: jsonEncode(<String, String>{
       //aca toca reemplazar los datos que estan quemados
       "amount": "45000",
-      "creditCard": "vm9skov3s1s3ro33ghckq9t9dei5cfbk",
+      "creditCard": _paymentMethod,
       "currency": "COP",
       "description": "Tpaga",
       "installments": "1",

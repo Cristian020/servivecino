@@ -3,7 +3,7 @@ import 'package:restaurant_ui_kit/screens/checkout.dart';
 import 'package:restaurant_ui_kit/widgets/grid_product_shopping_cart.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
-import 'package:restaurant_ui_kit/screens/details_shopping_cart.dart  ';
+import 'package:restaurant_ui_kit/screens/details_shopping_cart.dart';
 import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 
 class CartScreen extends StatefulWidget {
