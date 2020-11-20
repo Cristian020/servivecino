@@ -81,8 +81,8 @@ class _ProfileState extends State<Profile> {
                             child: Text(
                               "Cerrar sesion",
                               style: TextStyle(
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 18.5,
+                                fontWeight: FontWeight.w900,
                                 color: Theme.of(context).accentColor,
                               ),
                               overflow: TextOverflow.ellipsis,
