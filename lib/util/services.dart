@@ -20,7 +20,7 @@ Future<void> readServicesData() async {
       .collection(collectionRef: collectionReference)
       .within(center: center, radius: radius, field: field, strictMode: true);
   stream.listen((List<DocumentSnapshot> documentList) {
-    print("Documentos en firebase: " + documentList.toString());
+    //print("Documentos en firebase: " + documentList.toString());
     List<Map> items = [];
     documentList.forEach((DocumentSnapshot document) {
       var info = document.data();
@@ -33,7 +33,7 @@ Future<void> readServicesData() async {
         "categoria": info['Categoria'],
         "dir": info['Direccion'],
       });
-      print(document.data());
+      //print(document.data());
     });
     services = items;
   });
