@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:restaurant_ui_kit/screens/payment_fail.dart';
+import 'package:restaurant_ui_kit/screens/payment_success.dart';
 
 Future<http.Response> createPay() async {
   final http.Response response = await http.post(
@@ -23,7 +25,9 @@ Future<http.Response> createPay() async {
 
   if (response.statusCode == 201) {
     //Aca que hacemos en caso de tener 201 la creacion del customer es exitosa y continuamos
+    PagoExitoso();
   } else {
+    PagoRechazado();
     throw Exception('Failed to create');
   }
 }
