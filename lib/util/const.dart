@@ -100,6 +100,54 @@ class Constants {
     await prefs.setString('customer', customer);
   }
 
+  //Variable para almacenar token de customer
+  Future<String> validateTokenCc() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String tokenCc = (prefs.getString('tokenCc'));
+    return tokenCc;
+  }
+
+  setTokenCc(tokenCc) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('tokenCc', tokenCc);
+  }
+
+  //Variable para almacenar token tarjeta para pago
+  Future<String> validatePaymentMethod() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String paymentMethod = (prefs.getString('paymentMethod'));
+    return paymentMethod;
+  }
+
+  setPaymentMethod(paymentMethod) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('paymentMethod', paymentMethod);
+  }
+
+  //Variable para almacenar  franquicia de tarjeta
+  Future<String> validatePaymentMethodType() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String paymentMethodType = (prefs.getString('paymentMethodType'));
+    return paymentMethodType;
+  }
+
+  setPaymentMethodType(paymentMethodType) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('paymentMethodType', paymentMethodType);
+  }
+
+  //Variable para almacenar ultimos 4 de tarjeta
+  Future<String> validatePaymentMethodLastFour() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String paymentMethodLastFour = (prefs.getString('paymentMethodLastFour'));
+    return paymentMethodLastFour;
+  }
+
+  setPaymentMethodLastFour(paymentMethodLastFour) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('paymentMethodLastFour', paymentMethodLastFour);
+  }
+
   static String appName = "Servivecino";
 
   //Colors for theme
