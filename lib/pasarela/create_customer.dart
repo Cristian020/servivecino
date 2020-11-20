@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:restaurant_ui_kit/pasarela/tokenize_credit_card.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
 
-Future<http.Response> createCustomer() async {
+String _customer;
+
+Future<http.Response> createCustomer(String email, String name, String lastName,
+    String document, String telefono) async {
   final http.Response response = await http.post(
     'https://sandbox.tpaga.co/api/customer',
     headers: <String, String>{
@@ -12,19 +15,20 @@ Future<http.Response> createCustomer() async {
     },
     body: jsonEncode(<String, String>{
       //aca toca reemplazar los datos que estan quemados
-      "email": "lsuarez@tpaga.co",
-      "firstName": "Luis",
-      "gender": "M",
-      "lastName": "Suarez",
-      "legalIdNumber": "1010101010",
-      "merchantCustomerId": "0",
-      "phone": "1234567"
+      "email": email,
+      "firstName": name,
+      "lastName": lastName,
+      "legalIdNumber": document,
+      "phone": telefono
     }),
   );
 
   if (response.statusCode == 201) {
     //Aca que hacemos en caso de tener 201 la creacion del customer es exitosa y continuamos
-    createTokenize();
+    final responseJson = json.decode(response.body)['id'];
+    _customer = responseJson;
+    print("Este el el json de response: " + responseJson.toString());
+    Constants().setUserToken(_customer);
   } else {
     throw Exception('Failed to create');
   }
