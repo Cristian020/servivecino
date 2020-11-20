@@ -19,6 +19,46 @@ class _CheckoutState extends State<Checkout> {
     super.initState();
   }
 
+  final List<String> _numeroCuotas = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31',
+    '32',
+    '33',
+    '34',
+    '35',
+    '36'
+  ];
+  var _cuotaSeleccionada;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,6 +184,30 @@ class _CheckoutState extends State<Checkout> {
                   ),
                 ),
               ),
+            ),
+            DropdownButtonFormField(
+              items: _numeroCuotas.map((value) {
+                return DropdownMenuItem(
+                  child: Text(
+                    value,
+                  ),
+                  value: value,
+                );
+              }).toList(),
+              onChanged: (selectAccountType) {
+                setState(() {
+                  _cuotaSeleccionada = selectAccountType;
+                });
+              },
+              value: _cuotaSeleccionada,
+              isExpanded: false,
+              hint: Text('Numero de cuotas'),
+              validator: (value) {
+                return value == null ? "El numero de cuota es requerida" : null;
+              },
+              onSaved: (value) {
+                return _cuotaSeleccionada = value;
+              },
             ),
             SizedBox(height: 20.0),
           ],
