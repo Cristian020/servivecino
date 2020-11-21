@@ -367,7 +367,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   _telefonoControl.text,
                 );
                 Constants()
-                    .validateUserToken()
+                    .validateCustomer()
                     .then((value) => {_tpagaToken = value});
                 //signInWithEmail();
                 UserModel.signUp(
