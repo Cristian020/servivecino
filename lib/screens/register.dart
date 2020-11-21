@@ -23,6 +23,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String _tpagaToken;
 
   @override
+  void initState() {
+    super.initState();
+    getToken();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(20.0, 0, 20, 0),
@@ -366,9 +372,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   _documentControl.text,
                   _telefonoControl.text,
                 );
-                Constants()
-                    .validateCustomer()
-                    .then((value) => {_tpagaToken = value});
+
                 //signInWithEmail();
                 UserModel.signUp(
                   email: _usernameControl.text,
@@ -466,5 +470,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => page),
     );
+  }
+
+  void getToken() async {
+    await Constants().validateCustomer().then((value) => _tpagaToken = value);
   }
 }
