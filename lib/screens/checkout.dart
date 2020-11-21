@@ -150,65 +150,72 @@ class _CheckoutState extends State<Checkout> {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            Card(
-              elevation: 4.0,
-              child: ListTile(
-                title: Text("John Doe"),
-                subtitle: Text(
-                  "5506 7744 8610 9638",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w900,
-                  ),
+            Container(
+                child: Column(
+              children: [
+                DropdownButtonFormField(
+                  items: _numeroCuotas.map((value) {
+                    return DropdownMenuItem(
+                      child: Text(
+                        value,
+                      ),
+                      value: value,
+                    );
+                  }).toList(),
+                  onChanged: (selectAccountType) {
+                    setState(() {
+                      _cuotaSeleccionada = selectAccountType;
+                    });
+                  },
+                  value: _cuotaSeleccionada,
+                  isExpanded: false,
+                  hint: Text('Numero de cuotas'),
+                  validator: (value) {
+                    return value == null
+                        ? "El numero de cuota es requerida"
+                        : null;
+                  },
+                  onSaved: (value) {
+                    return _cuotaSeleccionada = value;
+                  },
                 ),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
+                Card(
+                  elevation: 4.0,
+                  child: ListTile(
+                    title: Text("John Doe"),
+                    subtitle: Text(
+                      "5506 7744 8610 9638",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return AddCreditCard();
+                          },
+                        ),
+                      );
+                    },
+                    leading: Icon(
+                      FontAwesomeIcons.creditCard,
+                      size: 50.0,
+                      color: Theme.of(context).accentColor,
+                    ),
+                    trailing: IconButton(
+                      onPressed: () {
                         return AddCreditCard();
                       },
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                      ),
                     ),
-                  );
-                },
-                leading: Icon(
-                  FontAwesomeIcons.creditCard,
-                  size: 50.0,
-                  color: Theme.of(context).accentColor,
-                ),
-                trailing: IconButton(
-                  onPressed: () {
-                    return AddCreditCard();
-                  },
-                  icon: Icon(
-                    Icons.keyboard_arrow_down,
                   ),
                 ),
-              ),
-            ),
-            DropdownButtonFormField(
-              items: _numeroCuotas.map((value) {
-                return DropdownMenuItem(
-                  child: Text(
-                    value,
-                  ),
-                  value: value,
-                );
-              }).toList(),
-              onChanged: (selectAccountType) {
-                setState(() {
-                  _cuotaSeleccionada = selectAccountType;
-                });
-              },
-              value: _cuotaSeleccionada,
-              isExpanded: false,
-              hint: Text('Numero de cuotas'),
-              validator: (value) {
-                return value == null ? "El numero de cuota es requerida" : null;
-              },
-              onSaved: (value) {
-                return _cuotaSeleccionada = value;
-              },
-            ),
+              ],
+            )),
             SizedBox(height: 20.0),
           ],
         ),
