@@ -28,7 +28,7 @@ Future<http.Response> createCustomer(String email, String name, String lastName,
     final responseJson = json.decode(response.body)['id'];
     _customer = responseJson;
     print("Este el el json de response: " + responseJson.toString());
-    Constants().setUserToken(_customer);
+    Constants().setCustomer(_customer);
   } else {
     throw Exception('Failed to create');
   }
