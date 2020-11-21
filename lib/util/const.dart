@@ -100,7 +100,7 @@ class Constants {
     await prefs.setString('customer', customer);
   }
 
-  //Variable para almacenar token de customer
+  //Variable para almacenar token de tarjeta
   Future<String> validateTokenCc() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String tokenCc = (prefs.getString('tokenCc'));
