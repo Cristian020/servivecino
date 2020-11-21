@@ -5,6 +5,7 @@ import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
 import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
 import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
+import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 
 class Checkout extends StatefulWidget {
   @override
@@ -97,7 +98,7 @@ class _CheckoutState extends State<Checkout> {
             ListView.builder(
               primary: false,
               shrinkWrap: true,
-              itemCount: services == null ? 0 : services.length,
+              itemCount: shoppingCart == null ? 0 : shoppingCart.length,
               itemBuilder: (BuildContext context, int index) {
 //                service service = service.fromJson(services[index]);
                 Map service = services[index];
@@ -226,6 +227,17 @@ class _CheckoutState extends State<Checkout> {
           child: ListView(
             physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
+              /*ListTile(
+               title: Text(
+                 "Nombre",
+                 style: TextStyle(
+                   fontSize: 17,
+                   fontWeight: FontWeight.w700,
+                 ),
+               ),
+               subtitle: Text(
+                 "Jane Mary Doe",
+              ),*/
               // Padding(
               //   padding: EdgeInsets.all(10),
               //   child: Container(
