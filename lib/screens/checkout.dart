@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/pasarela/pay.dart';
+import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
 import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
 import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
+
+String number = "*";
+String type = "*";
 
 class Checkout extends StatefulWidget {
   @override
@@ -61,6 +65,10 @@ class _CheckoutState extends State<Checkout> {
 
   @override
   Widget build(BuildContext context) {
+    Constants()
+        .validatePaymentMethodLastFour()
+        .then((value) => {number = value});
+    Constants().validatePaymentMethodType().then((value) => {type = value});
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -182,15 +190,23 @@ class _CheckoutState extends State<Checkout> {
                 Card(
                   elevation: 4.0,
                   child: ListTile(
-                    title: Text("John Doe"),
+                    title: Text("Tarjeta"),
                     subtitle: Text(
-                      "5506 7744 8610 9638",
+                      type.toString() + " ********" + number.toString(),
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     onTap: () {
+                      setState(() {
+                        Constants()
+                            .validatePaymentMethodLastFour()
+                            .then((value) => {number = value});
+                        Constants()
+                            .validatePaymentMethodType()
+                            .then((value) => {type = value});
+                      });
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) {
@@ -315,8 +331,19 @@ class _CheckoutState extends State<Checkout> {
                         ),
                       ),
                       onPressed: () {
+                        if (number != "*" || number != null) {
+                          createPay();
+                        } else {
+                          setState(() {
+                            Constants()
+                                .validatePaymentMethodLastFour()
+                                .then((value) => {number = value});
+                            Constants()
+                                .validatePaymentMethodType()
+                                .then((value) => {type = value});
+                          });
+                        }
                         //Aca va la funcionalidad de consumir api de pasarela
-                        createPay();
                       },
                     ),
                   ),
