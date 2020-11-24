@@ -24,45 +24,45 @@ class _CheckoutState extends State<Checkout> {
     super.initState();
   }
 
-  final List<String> _numeroCuotas = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-    '17',
-    '18',
-    '19',
-    '20',
-    '21',
-    '22',
-    '23',
-    '24',
-    '25',
-    '26',
-    '27',
-    '28',
-    '29',
-    '30',
-    '31',
-    '32',
-    '33',
-    '34',
-    '35',
-    '36'
-  ];
-  var _cuotaSeleccionada;
+  // final List<String> _numeroCuotas = [
+  //   '1',
+  //   '2',
+  //   '3',
+  //   '4',
+  //   '5',
+  //   '6',
+  //   '7',
+  //   '8',
+  //   '9',
+  //   '10',
+  //   '11',
+  //   '12',
+  //   '13',
+  //   '14',
+  //   '15',
+  //   '16',
+  //   '17',
+  //   '18',
+  //   '19',
+  //   '20',
+  //   '21',
+  //   '22',
+  //   '23',
+  //   '24',
+  //   '25',
+  //   '26',
+  //   '27',
+  //   '28',
+  //   '29',
+  //   '30',
+  //   '31',
+  //   '32',
+  //   '33',
+  //   '34',
+  //   '35',
+  //   '36'
+  // ];
+  // var _cuotaSeleccionada;
 
   @override
   Widget build(BuildContext context) {
@@ -122,117 +122,117 @@ class _CheckoutState extends State<Checkout> {
               },
             ),
             SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  "Direccion",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.edit,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10.0),
-            ListTile(
-              title: Text(
-                "John Doe",
-                style: TextStyle(
-//                    fontSize: 15,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-              subtitle: Text("Calle falsa 123"),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              "Medio de pago",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            Container(
-                child: Column(
-              children: [
-                DropdownButtonFormField(
-                  items: _numeroCuotas.map((value) {
-                    return DropdownMenuItem(
-                      child: Text(
-                        value,
-                      ),
-                      value: value,
-                    );
-                  }).toList(),
-                  onChanged: (selectAccountType) {
-                    setState(() {
-                      _cuotaSeleccionada = selectAccountType;
-                    });
-                  },
-                  value: _cuotaSeleccionada,
-                  isExpanded: false,
-                  hint: Text('Numero de cuotas'),
-                  validator: (value) {
-                    return value == null
-                        ? "El numero de cuota es requerida"
-                        : null;
-                  },
-                  onSaved: (value) {
-                    return _cuotaSeleccionada = value;
-                  },
-                ),
-                Card(
-                  elevation: 4.0,
-                  child: ListTile(
-                    title: Text("Tarjeta"),
-                    subtitle: Text(
-                      type.toString() + " ********" + number.toString(),
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    onTap: () {
-                      setState(() {
-                        Constants()
-                            .validatePaymentMethodLastFour()
-                            .then((value) => {number = value});
-                        Constants()
-                            .validatePaymentMethodType()
-                            .then((value) => {type = value});
-                      });
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return AddCreditCard();
-                          },
-                        ),
-                      );
-                    },
-                    leading: Icon(
-                      FontAwesomeIcons.creditCard,
-                      size: 50.0,
-                      color: Theme.of(context).accentColor,
-                    ),
-                    trailing: IconButton(
-                      onPressed: () {
-                        return AddCreditCard();
-                      },
-                      icon: Icon(
-                        Icons.keyboard_arrow_down,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: <Widget>[
+//                 Text(
+//                   "Direccion",
+//                   style: TextStyle(
+//                     fontSize: 15,
+//                     fontWeight: FontWeight.w400,
+//                   ),
+//                 ),
+//                 IconButton(
+//                   onPressed: () {},
+//                   icon: Icon(
+//                     Icons.edit,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             SizedBox(height: 10.0),
+//             ListTile(
+//               title: Text(
+//                 "John Doe",
+//                 style: TextStyle(
+// //                    fontSize: 15,
+//                   fontWeight: FontWeight.w900,
+//                 ),
+//               ),
+//               subtitle: Text("Calle falsa 123"),
+//             ),
+//             SizedBox(height: 10.0),
+            // Text(
+            //   "Medio de pago",
+            //   style: TextStyle(
+            //     fontSize: 15,
+            //     fontWeight: FontWeight.w400,
+            //   ),
+            // ),
+            // Container(
+            //     child: Column(
+            //   children: [
+            //     DropdownButtonFormField(
+            //       items: _numeroCuotas.map((value) {
+            //         return DropdownMenuItem(
+            //           child: Text(
+            //             value,
+            //           ),
+            //           value: value,
+            //         );
+            //       }).toList(),
+            //       onChanged: (selectAccountType) {
+            //         setState(() {
+            //           _cuotaSeleccionada = selectAccountType;
+            //         });
+            //       },
+            //       value: _cuotaSeleccionada,
+            //       isExpanded: false,
+            //       hint: Text('Numero de cuotas'),
+            //       validator: (value) {
+            //         return value == null
+            //             ? "El numero de cuota es requerida"
+            //             : null;
+            //       },
+            //       onSaved: (value) {
+            //         return _cuotaSeleccionada = value;
+            //       },
+            //     ),
+            //     Card(
+            //       elevation: 4.0,
+            //       child: ListTile(
+            //         title: Text("Tarjeta"),
+            //         subtitle: Text(
+            //           type.toString() + " ********" + number.toString(),
+            //           style: TextStyle(
+            //             fontSize: 13,
+            //             fontWeight: FontWeight.w900,
+            //           ),
+            //         ),
+            //         onTap: () {
+            //           setState(() {
+            //             Constants()
+            //                 .validatePaymentMethodLastFour()
+            //                 .then((value) => {number = value});
+            //             Constants()
+            //                 .validatePaymentMethodType()
+            //                 .then((value) => {type = value});
+            //           });
+            //           Navigator.of(context).push(
+            //             MaterialPageRoute(
+            //               builder: (BuildContext context) {
+            //                 return AddCreditCard();
+            //               },
+            //             ),
+            //           );
+            //         },
+            //         leading: Icon(
+            //           FontAwesomeIcons.creditCard,
+            //           size: 50.0,
+            //           color: Theme.of(context).accentColor,
+            //         ),
+            //         trailing: IconButton(
+            //           onPressed: () {
+            //             return AddCreditCard();
+            //           },
+            //           icon: Icon(
+            //             Icons.keyboard_arrow_down,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // )),
             SizedBox(height: 20.0),
           ],
         ),
