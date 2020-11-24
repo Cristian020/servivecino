@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:restaurant_ui_kit/pasarela/create_payment_request.dart';
 import 'package:restaurant_ui_kit/pasarela/pay.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/services.dart';
@@ -332,7 +333,7 @@ class _CheckoutState extends State<Checkout> {
                       ),
                       onPressed: () {
                         if (number != "*" || number != null) {
-                          createPay();
+                          createPaymentRequest();
                         } else {
                           setState(() {
                             Constants()
