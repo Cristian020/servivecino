@@ -5,6 +5,7 @@ import 'package:credit_card/flutter_credit_card.dart';
 import 'package:restaurant_ui_kit/pasarela/tokenize_credit_card.dart';
 import 'package:restaurant_ui_kit/screens/checkout.dart';
 
+@deprecated
 class AddCreditCard extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
