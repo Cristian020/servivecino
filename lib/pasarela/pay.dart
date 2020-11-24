@@ -6,6 +6,7 @@ import 'package:restaurant_ui_kit/util/const.dart';
 
 String _paymentMethod;
 
+@deprecated
 Future<http.Response> createPay() async {
   Constants().validatePaymentMethod().then((value) => {_paymentMethod = value});
   final http.Response response = await http.post(

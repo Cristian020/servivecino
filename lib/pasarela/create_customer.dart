@@ -4,6 +4,7 @@ import 'package:restaurant_ui_kit/util/const.dart';
 
 String _customer;
 
+@deprecated
 Future<http.Response> createCustomer(String email, String name, String lastName,
     String document, String telefono) async {
   final http.Response response = await http.post(

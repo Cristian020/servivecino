@@ -4,6 +4,8 @@ import 'package:restaurant_ui_kit/pasarela/asociate_credit_cart_to_customer.dart
 import 'package:restaurant_ui_kit/util/const.dart';
 
 String _tokenCc;
+
+@deprecated
 Future<http.Response> createTokenize(
     String name, String month, String year, String number) async {
   final http.Response response = await http.post(
