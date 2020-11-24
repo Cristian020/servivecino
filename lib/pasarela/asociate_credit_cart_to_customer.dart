@@ -7,6 +7,7 @@ String paymentMethod;
 String paymentMethodType;
 String paymentMethodLastFour;
 
+@deprecated
 Future<http.Response> createAsociate(String token) async {
   Constants().validateCustomer().then((value) => {_customer = value});
   final http.Response response = await http.post(
