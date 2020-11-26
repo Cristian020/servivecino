@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 String _payment_url;
 
@@ -35,6 +36,7 @@ Future<http.Response> createPaymentRequest(
     final responseJson = json.decode(response.body)['tpaga_payment_url'];
     _payment_url = responseJson;
     print("Este el el json de response: " + responseJson.toString());
+    launch(_payment_url);
   } else {
     throw Exception('Failed to create');
   }
