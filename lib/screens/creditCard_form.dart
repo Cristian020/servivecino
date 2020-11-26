@@ -3,7 +3,9 @@ import 'package:credit_card/credit_card_form.dart';
 import 'package:credit_card/credit_card_model.dart';
 import 'package:credit_card/flutter_credit_card.dart';
 import 'package:restaurant_ui_kit/pasarela/tokenize_credit_card.dart';
+import 'package:restaurant_ui_kit/screens/checkout.dart';
 
+@deprecated
 class AddCreditCard extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -63,6 +65,13 @@ class AddCreditCardState extends State<AddCreditCard> {
                         expiryDate.split('/')[0],
                         expiryDate.split('/')[1],
                         cardNumber.replaceAll(' ', ''));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return Checkout();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),
