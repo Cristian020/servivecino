@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_ui_kit/pasarela/create_payment_request.dart';
@@ -7,6 +8,8 @@ import 'package:restaurant_ui_kit/util/services.dart';
 import 'package:restaurant_ui_kit/widgets/cart_item.dart';
 import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
 import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
+import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
+import 'package:restaurant_ui_kit/util/info_services.dart';
 
 String number = "*";
 String type = "*";
@@ -66,6 +69,10 @@ class _CheckoutState extends State<Checkout> {
 
   @override
   Widget build(BuildContext context) {
+    ShoppingCart_services.getvalorTotal();
+    String cost = ShoppingCart_services.valorTotal;
+    String descripcion =
+        "Son " + shoppingCart.length.toString() + " servicios para adquirir.";
     Constants()
         .validatePaymentMethodLastFour()
         .then((value) => {number = value});
@@ -106,7 +113,7 @@ class _CheckoutState extends State<Checkout> {
             ListView.builder(
               primary: false,
               shrinkWrap: true,
-              itemCount: services == null ? 0 : services.length,
+              itemCount: shoppingCart == null ? 0 : shoppingCart.length,
               itemBuilder: (BuildContext context, int index) {
 //                service service = service.fromJson(services[index]);
                 Map service = services[index];
@@ -243,6 +250,17 @@ class _CheckoutState extends State<Checkout> {
           child: ListView(
             physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
+              /*ListTile(
+               title: Text(
+                 "Nombre",
+                 style: TextStyle(
+                   fontSize: 17,
+                   fontWeight: FontWeight.w700,
+                 ),
+               ),
+               subtitle: Text(
+                 "Jane Mary Doe",
+              ),*/
               // Padding(
               //   padding: EdgeInsets.all(10),
               //   child: Container(
@@ -302,7 +320,7 @@ class _CheckoutState extends State<Checkout> {
                           ),
                         ),
                         Text(
-                          r"$ 21200",
+                          r"$" + cost,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w900,
@@ -334,7 +352,11 @@ class _CheckoutState extends State<Checkout> {
                       onPressed: () {
                         //Aca consumimos la creacion del pago en billetera
                         //createPaymentRequest();
-
+                        createPaymentRequest(
+                            ShoppingCart_services.valorTotal,
+                            "${infoServices[0]['tpagaToken']}",
+                            "${infoServices[0]['authId']}",
+                            descripcion);
                         //Aca va la funcionalidad de consumir api de pasarela
                       },
                     ),
