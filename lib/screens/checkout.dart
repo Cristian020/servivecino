@@ -332,18 +332,9 @@ class _CheckoutState extends State<Checkout> {
                         ),
                       ),
                       onPressed: () {
-                        if (number != "*" || number != null) {
-                          createPaymentRequest();
-                        } else {
-                          setState(() {
-                            Constants()
-                                .validatePaymentMethodLastFour()
-                                .then((value) => {number = value});
-                            Constants()
-                                .validatePaymentMethodType()
-                                .then((value) => {type = value});
-                          });
-                        }
+                        //Aca consumimos la creacion del pago en billetera
+                        //createPaymentRequest();
+
                         //Aca va la funcionalidad de consumir api de pasarela
                       },
                     ),
