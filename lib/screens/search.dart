@@ -141,6 +141,8 @@ class _SearchScreenState extends State<SearchScreen>
         ],
       ),
     );
+
+    Future getMapSearch() async {}
   }
 
   @override

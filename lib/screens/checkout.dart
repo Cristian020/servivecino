@@ -10,6 +10,7 @@ import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
 import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
 import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 import 'package:restaurant_ui_kit/util/info_services.dart';
+import 'package:restaurant_ui_kit/screens/details_shopping_cart.dart';
 
 String number = "*";
 String type = "*";
@@ -117,7 +118,7 @@ class _CheckoutState extends State<Checkout> {
               itemCount: shoppingCart == null ? 0 : shoppingCart.length,
               itemBuilder: (BuildContext context, int index) {
 //                service service = service.fromJson(services[index]);
-                Map service = services[index];
+                Map service = shoppingCart[index];
 //                print(services);
 //                print(services.length);
                 return CartItem(
@@ -129,6 +130,7 @@ class _CheckoutState extends State<Checkout> {
                 );
               },
             ),
+
             SizedBox(height: 10.0),
 //             Row(
 //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
