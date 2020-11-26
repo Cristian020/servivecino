@@ -4,6 +4,7 @@ import 'package:restaurant_ui_kit/screens/main_screen.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:restaurant_ui_kit/util/info_services.dart';
 
 import '../util/const.dart';
 
@@ -154,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               onPressed: () {
                 signInWithEmail();
+                readInfoServicesData();
               },
               color: Theme.of(context).accentColor,
             ),
