@@ -112,7 +112,8 @@ class UserModel {
       _direccion: direccion,
       _tpagaToken: tpagaToken
     };
-    await UserModel.collectionReference.add(userData);
+    //await UserModel.collectionReference.add(userData);
+    await UserModel.collectionReference.doc(UserModel.userId).set(userData);
   }
 
   Future<void> update(

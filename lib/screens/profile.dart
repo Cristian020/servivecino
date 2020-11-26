@@ -5,8 +5,6 @@ import 'package:restaurant_ui_kit/screens/splash.dart';
 import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:restaurant_ui_kit/util/info_services.dart';
 
-String user = '';
-
 class Profile extends StatefulWidget {
   final int index;
   Profile({Key key, @required this.index});
@@ -17,7 +15,6 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    Constants().validateEmail().then((value) => {user = value});
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
@@ -56,7 +53,10 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            user,
+                            "${infoServices[0]['name']}" +
+                                " " +
+                                "${infoServices[0]['lastName']}",
+                            //user,
                             style: TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.bold,
@@ -108,147 +108,54 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            // ListTile(
-            //   title: Text(
-            //     "Nombre",
-            //     style: TextStyle(
-            //       fontSize: 17,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            //   subtitle: Text(
-            //     "Jane Mary Doe",
-            //   ),
-            //   trailing: IconButton(
-            //     icon: Icon(
-            //       Icons.edit,
-            //       size: 20.0,
-            //     ),
-            //     onPressed: () {},
-            //     tooltip: "Editar",
-            //   ),
-            // ),
             ListTile(
               title: Text(
-                "correo",
-                //"${infoServices[widget.index]['name']}",
+                "Documento",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               subtitle: Text(
-                user,
-              ),
-            ),
-            /*ListTile(
-              title: Text(
-                "${infoServices[widget.index]['lastname']}",
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              subtitle: Text(
-                user,
+                "${infoServices[0]['document']}",
               ),
             ),
             ListTile(
               title: Text(
-                "${infoServices[widget.index]['document']}",
+                "Direccion",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               subtitle: Text(
-                user,
+                "${infoServices[0]['direccion']}",
               ),
             ),
             ListTile(
               title: Text(
-                "${infoServices[widget.index]['telefono']}",
+                "Telefono",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               subtitle: Text(
-                user,
+                "${infoServices[0]['telefono']}",
               ),
             ),
             ListTile(
               title: Text(
-                "${infoServices[widget.index]['email']}",
+                "Correo",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               subtitle: Text(
-                user,
+                "${infoServices[0]['email']}",
               ),
             ),
-            ListTile(
-              title: Text(
-                "${infoServices[widget.index]['direccion']}",
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              subtitle: Text(
-                user,
-              ),
-            ),*/
-            // ListTile(
-            //   title: Text(
-            //     "Telefono",
-            //     style: TextStyle(
-            //       fontSize: 17,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            //   subtitle: Text(
-            //     "+1 816-926-6241",
-            //   ),
-            // ),
-            // ListTile(
-            //   title: Text(
-            //     "Direccion",
-            //     style: TextStyle(
-            //       fontSize: 17,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            //   subtitle: Text(
-            //     "Calle falsa 123",
-            //   ),
-            // ),
-            // ListTile(
-            //   title: Text(
-            //     "Genero",
-            //     style: TextStyle(
-            //       fontSize: 17,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            //   subtitle: Text(
-            //     "Femenino",
-            //   ),
-            // ),
-            // ListTile(
-            //   title: Text(
-            //     "Fecha de nacimiento",
-            //     style: TextStyle(
-            //       fontSize: 17,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            //   subtitle: Text(
-            //     "Abril 9, 1995",
-            //   ),
-            // ),
             ListTile(
               title: Text(
                 "Tema oscuro",
