@@ -10,6 +10,7 @@ import 'package:restaurant_ui_kit/screens/creditCard_form.dart';
 import 'package:restaurant_ui_kit/pasarela/create_customer.dart';
 import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 import 'package:restaurant_ui_kit/util/info_services.dart';
+import 'package:restaurant_ui_kit/screens/details_shopping_cart.dart';
 
 String number = "*";
 String type = "*";
@@ -111,6 +112,7 @@ class _CheckoutState extends State<Checkout> {
                 fontWeight: FontWeight.w400,
               ),
             ),
+            SizedBox(height: 30.0),
             ListView.builder(
               primary: false,
               shrinkWrap: true,
@@ -120,12 +122,32 @@ class _CheckoutState extends State<Checkout> {
                 Map service = shoppingCart[index];
 //                print(services);
 //                print(services.length);
-                return CartItem(
-                  img: service['img'],
-                  isFav: false,
-                  name: service['name'],
-                  rating: 5.0,
-                  raters: 23,
+                return ListTile(
+                  title: Text(
+                    "${service['name']}",
+                    style: TextStyle(
+//                    fontSize: 15,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  leading: CircleAvatar(
+                    radius: 40.5,
+                    backgroundImage: NetworkImage(
+                      "${service['img']}",
+                    ),
+                  ),
+                  trailing: Text("${service['precio']}"),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return ProductDetails(
+                            index: index,
+                          );
+                        },
+                      ),
+                    );
+                  },
                 );
               },
             ),
