@@ -117,7 +117,7 @@ class _CheckoutState extends State<Checkout> {
               itemCount: shoppingCart == null ? 0 : shoppingCart.length,
               itemBuilder: (BuildContext context, int index) {
 //                service service = service.fromJson(services[index]);
-                Map service = services[index];
+                Map service = shoppingCart[index];
 //                print(services);
 //                print(services.length);
                 return CartItem(
