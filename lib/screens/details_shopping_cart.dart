@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 import 'package:restaurant_ui_kit/util/own_services.dart';
 import 'package:restaurant_ui_kit/widgets/badge.dart';
 
@@ -41,7 +42,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
-                      "${ownServices[widget.index]['img']}",
+                      "${shoppingCart[widget.index]['img']}",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -71,7 +72,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${ownServices[widget.index]['name']}",
+              "${shoppingCart[widget.index]['name']}",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -112,7 +113,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   // ),
                   SizedBox(width: 10.0),
                   Text(
-                    "${ownServices[widget.index]['precio']}",
+                    "${shoppingCart[widget.index]['precio']}",
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w900,
@@ -133,7 +134,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             SizedBox(height: 10.0),
             Text(
-              "${ownServices[widget.index]['desc']}",
+              "${shoppingCart[widget.index]['desc']}",
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w300,
