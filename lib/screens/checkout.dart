@@ -12,6 +12,8 @@ import 'package:restaurant_ui_kit/util/shoppingCart_services.dart';
 import 'package:restaurant_ui_kit/util/info_services.dart';
 import 'package:restaurant_ui_kit/screens/details_shopping_cart.dart';
 
+import 'main_screen.dart';
+
 String number = "*";
 String type = "*";
 
@@ -375,11 +377,23 @@ class _CheckoutState extends State<Checkout> {
                       onPressed: () {
                         //Aca consumimos la creacion del pago en billetera
                         //createPaymentRequest();
-                        createPaymentRequest(
-                            ShoppingCart_services.valorTotal,
-                            ShoppingCart_services.tokencito,
-                            "${infoServices[0]['tpagaToken']}",
-                            descripcion);
+                        if (ShoppingCart_services.total != 0) {
+                          createPaymentRequest(
+                              ShoppingCart_services.valorTotal,
+                              ShoppingCart_services.tokencito,
+                              "${infoServices[0]['tpagaToken']}",
+                              descripcion);
+                        } else {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                Constants().setLogin(false);
+                                print(Constants().validateLogin());
+                                return MainScreen();
+                              },
+                            ),
+                          );
+                        }
                         //Aca va la funcionalidad de consumir api de pasarela
                       },
                     ),
