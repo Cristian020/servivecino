@@ -70,6 +70,7 @@ class _CheckoutState extends State<Checkout> {
   @override
   Widget build(BuildContext context) {
     ShoppingCart_services.getvalorTotal();
+    ShoppingCart_services.getOrden();
     String cost = ShoppingCart_services.valorTotal;
     String descripcion =
         "Son " + shoppingCart.length.toString() + " servicios para adquirir.";
@@ -116,7 +117,7 @@ class _CheckoutState extends State<Checkout> {
               itemCount: shoppingCart == null ? 0 : shoppingCart.length,
               itemBuilder: (BuildContext context, int index) {
 //                service service = service.fromJson(services[index]);
-                Map service = services[index];
+                Map service = shoppingCart[index];
 //                print(services);
 //                print(services.length);
                 return CartItem(
@@ -354,8 +355,8 @@ class _CheckoutState extends State<Checkout> {
                         //createPaymentRequest();
                         createPaymentRequest(
                             ShoppingCart_services.valorTotal,
+                            ShoppingCart_services.tokencito,
                             "${infoServices[0]['tpagaToken']}",
-                            "${infoServices[0]['authId']}",
                             descripcion);
                         //Aca va la funcionalidad de consumir api de pasarela
                       },
