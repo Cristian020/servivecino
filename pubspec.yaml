@@ -37,6 +37,7 @@ dependencies:
   pull_to_refresh: ^1.6.1
   google_fonts: ^1.1.1
   http: ^0.12.2
+  uuid: ^2.2.2
 
   #registro de ubicacion
   location: ^3.0.2
