@@ -29,15 +29,7 @@ class CartItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 4, 0, 4),
       child: InkWell(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return ProductDetails();
-              },
-            ),
-          );
-        },
+        onTap: () {},
         child: Row(
           children: <Widget>[
             Padding(
@@ -66,35 +58,9 @@ class CartItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10.0),
-                Row(
-                  children: <Widget>[
-                    SmoothStarRating(
-                      starCount: 1,
-                      color: Constants.ratingBG,
-                      allowHalfRating: true,
-                      rating: 5.0,
-                      size: 12.0,
-                    ),
-                    SizedBox(width: 6.0),
-                    Text(
-                      "5.0 (23 Comentarios)",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                  ],
-                ),
                 SizedBox(height: 10.0),
                 Row(
                   children: <Widget>[
-                    Text(
-                      "20 Partes",
-                      style: TextStyle(
-                        fontSize: 11.0,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
                     SizedBox(width: 10.0),
                     Text(
                       "$precio",
@@ -107,13 +73,6 @@ class CartItem extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10.0),
-                Text(
-                  "Cantidad: 1",
-                  style: TextStyle(
-                    fontSize: 11.0,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
               ],
             ),
           ],
