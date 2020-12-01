@@ -387,8 +387,6 @@ class _CheckoutState extends State<Checkout> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                Constants().setLogin(false);
-                                print(Constants().validateLogin());
                                 return MainScreen();
                               },
                             ),

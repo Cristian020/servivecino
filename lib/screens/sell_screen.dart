@@ -9,6 +9,8 @@ import 'package:restaurant_ui_kit/util/const.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:restaurant_ui_kit/util/own_services.dart';
 
+import 'main_screen.dart';
+
 //import 'package:pattern_formatter/pattern_formatter.dart';
 
 class FavoriteScreen extends StatefulWidget {
@@ -330,8 +332,14 @@ class _FavoriteScreenState extends State<FavoriteScreen>
 
       //Subir formulario a DataBase
       subirFormulario(urlImage);
-
-      Navigator.pop(context);
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) {
+            return MainScreen();
+          },
+        ),
+      );
+      //Navigator.pop(context);
     }
   }
 
