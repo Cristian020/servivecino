@@ -68,7 +68,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: Form(
           key: formKey,
-          child: ElasticInDown(
+          child: ElasticIn(
             child: ListView(
               children: <Widget>[
                 SizedBox(height: 10.0),

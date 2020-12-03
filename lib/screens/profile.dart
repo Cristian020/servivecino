@@ -19,7 +19,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-        child: ElasticInDown(
+        child: ElasticIn(
           child: ListView(
             children: <Widget>[
               Row(
