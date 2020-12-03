@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -67,210 +68,211 @@ class _FavoriteScreenState extends State<FavoriteScreen>
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: Form(
           key: formKey,
-          child: ListView(
-            children: <Widget>[
-              SizedBox(height: 10.0),
-              Padding(
-                padding: EdgeInsets.only(/*bottom: 5.0*/),
-                child: IconButton(
-                  alignment: Alignment.bottomRight,
-                  icon: Icon(
-                    Icons.photo_camera,
-                    size: 30.0,
-                  ),
-                  onPressed: () {
-                    getImage();
-                  },
-                ),
-              ),
-
-              Container(
-                height: MediaQuery.of(context).size.height / 2.8,
-                width: MediaQuery.of(context).size.width,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: (_image != null)
-                      ? Image.file(
-                          _image,
-                          fit: BoxFit.fill,
-                        )
-                      : Image.asset(
-                          "assets/addImage.png",
-                          //"https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                          fit: BoxFit.fill,
-                        ),
-                ),
-              ),
-
-              SizedBox(height: 24.0),
-              //Nombre del Servicio
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
+          child: ElasticIn(
+            child: ListView(
+              children: <Widget>[
+                SizedBox(height: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(/*bottom: 5.0*/),
+                  child: IconButton(
+                    alignment: Alignment.bottomRight,
+                    icon: Icon(
+                      Icons.photo_camera,
+                      size: 30.0,
                     ),
-                  ),
-                  hintText: "Titulo para el servicio",
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    //color: Colors.black,
+                    onPressed: () {
+                      getImage();
+                    },
                   ),
                 ),
-                maxLines: 1,
-                validator: (value) {
-                  return value.isEmpty
-                      ? "El titulo del servicio es requerido"
-                      : null;
-                },
-                onSaved: (value) {
-                  return _tituloServicio = value;
-                },
-              ),
 
-              SizedBox(height: 10.0),
-
-              DropdownButtonFormField(
-                items: _tipos.map((value) {
-                  return DropdownMenuItem(
-                    child: Text(
-                      value,
-                    ),
-                    value: value,
-                  );
-                }).toList(),
-                onChanged: (selectAccountType) {
-                  setState(() {
-                    _categoriaSeleccionada = selectAccountType;
-                  });
-                },
-                value: _categoriaSeleccionada,
-                isExpanded: false,
-                hint: Text('Categoria'),
-                validator: (value) {
-                  return value == null ? "La categoria es requerida" : null;
-                },
-                onSaved: (value) {
-                  return _categoriaSeleccionada = value;
-                },
-              ),
-
-              SizedBox(height: 10.0),
-
-              //Descripcion
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ),
-                  ),
-                  hintText: "Dirección",
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    //color: Colors.black,
+                Container(
+                  height: MediaQuery.of(context).size.height / 2.8,
+                  width: MediaQuery.of(context).size.width,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: (_image != null)
+                        ? Image.file(
+                            _image,
+                            fit: BoxFit.fill,
+                          )
+                        : Image.asset(
+                            "assets/addImage.png",
+                            //"https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                            fit: BoxFit.fill,
+                          ),
                   ),
                 ),
-                maxLines: 1,
-                validator: (value) {
-                  return value.isEmpty ? "La dirección es requerida" : null;
-                },
-                onSaved: (value) {
-                  return _direccion = value;
-                },
-              ),
 
-              SizedBox(height: 10.0),
-
-              //Celular
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ),
-                  ),
-                  hintText: "Celular",
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    //color: Colors.black,
-                  ),
-                ),
-                maxLines: 1,
-                validator: (value) {
-                  return value.isEmpty
-                      ? "El número de celular es requerido"
-                      : null;
-                },
-                onSaved: (value) {
-                  return _celular = value;
-                },
-              ),
-
-              SizedBox(height: 10.0),
-
-              //Precio
-              TextFormField(
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
+                SizedBox(height: 24.0),
+                //Nombre del Servicio
+                TextFormField(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(10.0),
                       ),
                     ),
-                    hintText: "Precio por su servicio",
+                    hintText: "Titulo para el servicio",
                     hintStyle: TextStyle(
                       fontSize: 15.0,
-                      // color: Colors.black,
-                    ),
-                    prefixText: '\$',
-                    suffixText: 'COP',
-                    suffixStyle: TextStyle(color: Colors.orange)),
-                maxLines: 1,
-                validator: (value) {
-                  return value.isEmpty ? "El precio es requerido" : null;
-                },
-                onSaved: (value) {
-                  return _precio = value;
-                },
-              ),
-
-              SizedBox(height: 10.0),
-
-              //Descripcion
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
+                      //color: Colors.black,
                     ),
                   ),
-                  hintText: "Descripción",
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                    //color: Colors.black,
-                  ),
+                  maxLines: 1,
+                  validator: (value) {
+                    return value.isEmpty
+                        ? "El titulo del servicio es requerido"
+                        : null;
+                  },
+                  onSaved: (value) {
+                    return _tituloServicio = value;
+                  },
                 ),
-                maxLines: 7,
-                validator: (value) {
-                  return value.isEmpty ? "La descripción es requerida" : null;
-                },
-                onSaved: (value) {
-                  return _descripcion = value;
-                },
-              ),
-              RaisedButton(
-                child: Text(
-                  "Realizar venta",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+
+                SizedBox(height: 10.0),
+
+                DropdownButtonFormField(
+                  items: _tipos.map((value) {
+                    return DropdownMenuItem(
+                      child: Text(
+                        value,
+                      ),
+                      value: value,
+                    );
+                  }).toList(),
+                  onChanged: (selectAccountType) {
+                    setState(() {
+                      _categoriaSeleccionada = selectAccountType;
+                    });
+                  },
+                  value: _categoriaSeleccionada,
+                  isExpanded: false,
+                  hint: Text('Categoria'),
+                  validator: (value) {
+                    return value == null ? "La categoria es requerida" : null;
+                  },
+                  onSaved: (value) {
+                    return _categoriaSeleccionada = value;
+                  },
                 ),
-                color: Theme.of(context).accentColor,
-                onPressed: subirDatosDatabase,
-              )
-              /*bottomNavigationBar: Container(
+
+                SizedBox(height: 10.0),
+
+                //Descripcion
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                    hintText: "Dirección",
+                    hintStyle: TextStyle(
+                      fontSize: 15.0,
+                      //color: Colors.black,
+                    ),
+                  ),
+                  maxLines: 1,
+                  validator: (value) {
+                    return value.isEmpty ? "La dirección es requerida" : null;
+                  },
+                  onSaved: (value) {
+                    return _direccion = value;
+                  },
+                ),
+
+                SizedBox(height: 10.0),
+
+                //Celular
+                TextFormField(
+                  keyboardType: TextInputType.phone,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                    hintText: "Celular",
+                    hintStyle: TextStyle(
+                      fontSize: 15.0,
+                      //color: Colors.black,
+                    ),
+                  ),
+                  maxLines: 1,
+                  validator: (value) {
+                    return value.isEmpty
+                        ? "El número de celular es requerido"
+                        : null;
+                  },
+                  onSaved: (value) {
+                    return _celular = value;
+                  },
+                ),
+
+                SizedBox(height: 10.0),
+
+                //Precio
+                TextFormField(
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10.0),
+                        ),
+                      ),
+                      hintText: "Precio por su servicio",
+                      hintStyle: TextStyle(
+                        fontSize: 15.0,
+                        // color: Colors.black,
+                      ),
+                      prefixText: '\$',
+                      suffixText: 'COP',
+                      suffixStyle: TextStyle(color: Colors.orange)),
+                  maxLines: 1,
+                  validator: (value) {
+                    return value.isEmpty ? "El precio es requerido" : null;
+                  },
+                  onSaved: (value) {
+                    return _precio = value;
+                  },
+                ),
+
+                SizedBox(height: 10.0),
+
+                //Descripcion
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                    hintText: "Descripción",
+                    hintStyle: TextStyle(
+                      fontSize: 15.0,
+                      //color: Colors.black,
+                    ),
+                  ),
+                  maxLines: 7,
+                  validator: (value) {
+                    return value.isEmpty ? "La descripción es requerida" : null;
+                  },
+                  onSaved: (value) {
+                    return _descripcion = value;
+                  },
+                ),
+                RaisedButton(
+                  child: Text(
+                    "Realizar venta",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  color: Theme.of(context).accentColor,
+                  onPressed: subirDatosDatabase,
+                )
+                /*bottomNavigationBar: Container(
                 height: 50.0,
                 child: RaisedButton(
                   child: Text(
@@ -283,7 +285,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   onPressed: validacionFormulario,
                 ),
               ),*/
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -20,23 +20,30 @@ class _ViewSellState extends State<ViewSells>
     if (ownServices.length == 0) {
       return Scaffold(
         body: Padding(
-            padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-            child: ListView(children: <Widget>[
-              Image(
-                image: AssetImage('assets/viewSellPhoto.jpg'),
-                alignment: Alignment.bottomCenter,
-                height: 400,
-              ),
-              Text(
-                'No ha realizado ninguna venta de servicios',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.blueGrey[100],
+          padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+          child: AnimatedOpacity(
+            opacity: 1.0,
+            duration: Duration(seconds: 2),
+            child: ListView(
+              children: <Widget>[
+                Image(
+                  image: AssetImage('assets/viewSellPhoto.jpg'),
+                  alignment: Alignment.bottomCenter,
+                  height: 400,
                 ),
-              ),
-            ])),
+                Text(
+                  'No ha realizado ninguna venta de servicios',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.blueGrey[100],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         floatingActionButton: FloatingActionButton(
           tooltip: "btnSellView",
           onPressed: () {
